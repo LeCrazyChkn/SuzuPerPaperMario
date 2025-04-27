@@ -111,8 +111,8 @@ func _physics_process(delta):
 	
 	
 	#debugging section: checking x and y inputs
-	print(input_dir.x)
-	print(input_dir.y)
+	#print(input_dir.x)
+	#print(input_dir.y)
 	
 
 

@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://d04jeq8cy8iby"]
+[gd_scene load_steps=13 format=3 uid="uid://d04jeq8cy8iby"]
 
 [ext_resource type="PackedScene" uid="uid://byulypn47e25d" path="res://scenes/paper_character.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://be8u7wlq30n72" path="res://models/tokyo_suburban_rustic_house.glb" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://uppkiwepyswc" path="res://models/Japanese_Building.fbx" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bg0w0xabm0ftq" path="res://models/dojo textures/testing.fbx" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c1sjf2pri8o6v" path="res://models/dojo textures/fujiwara_tofu_shop.glb" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://ckj0smpgfo0ke" path="res://models/internet cafe/kyoto_cityscene_old_manga__internet_cafe.glb" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://q7pim4mgrc64" path="res://models/cityrestaurant1/house2render.fbx" id="7_u5sy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb40"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,7 +22,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mwb40"]
-size = Vector2(10, 10)
+size = Vector2(50, 50)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e2o6t"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
@@ -28,7 +33,7 @@ data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0
 environment = SubResource("Environment_e2o6t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(0.303937, -0.825057, 0.476344, 1.47562e-08, 0.499998, 0.866027, -0.952692, -0.263217, 0.151969, 0, 0, 0)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -43,4 +48,19 @@ shape = SubResource("ConcavePolygonShape3D_e2o6t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.729875, 0)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_lnu2h")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, -7)
+transform = Transform3D(-0.703618, 0, 0.710578, 0, 1, 0, -0.710578, 0, -0.703618, -11.1753, -4.76837e-07, 11.7093)
+
+[node name="Japanese_Building" parent="." instance=ExtResource("3_lnu2h")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -6.13269, -0.979905, -1.2822)
+
+[node name="testing" parent="." instance=ExtResource("4_lbhrr")]
+transform = Transform3D(0.919239, 0, -0.919239, 0, 1.3, 0, 0.919239, 0, 0.919239, 3, 1, -10)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("5_iywne")]
+transform = Transform3D(-0.00848528, 0, -0.00848528, 0, 0.012, 0, 0.00848528, 0, -0.00848528, 15.6563, 0.677716, -1.98919)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("6_p57ef")]
+transform = Transform3D(0.00919239, 0, -0.00919239, 0, 0.013, 0, 0.00919239, 0, 0.00919239, 19.5532, -4.76837e-07, 2.53548)
+
+[node name="house2render" parent="." instance=ExtResource("7_u5sy4")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -4, 0, -18)
