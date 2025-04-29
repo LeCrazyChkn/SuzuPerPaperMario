@@ -1,12 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://d04jeq8cy8iby"]
+[gd_scene load_steps=19 format=3 uid="uid://d04jeq8cy8iby"]
 
 [ext_resource type="PackedScene" uid="uid://byulypn47e25d" path="res://scenes/paper_character.tscn" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://be8u7wlq30n72" path="res://models/tokyo_suburban_rustic_house.glb" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://be8u7wlq30n72" path="res://models/rustic house/tokyo_suburban_rustic_house.glb" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://uppkiwepyswc" path="res://models/Japanese_Building.fbx" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bg0w0xabm0ftq" path="res://models/dojo textures/testing.fbx" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c1sjf2pri8o6v" path="res://models/dojo textures/fujiwara_tofu_shop.glb" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://ckj0smpgfo0ke" path="res://models/internet cafe/kyoto_cityscene_old_manga__internet_cafe.glb" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://q7pim4mgrc64" path="res://models/cityrestaurant1/house2render.fbx" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c4x4j47dcdv2t" path="res://models/jprestaurantgood/japanese_restaurant.glb" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://6k6la0y4c5i3" path="res://models/konbini/ultimate_japanese_konbini.glb" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://ddfu23u4p5jx5" path="res://models/bus stop/kyoto_cityscene_bus_stop.glb" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://yusy71ogq2x3" path="res://models/residential 1/japanese_residential_home_02.glb" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://lur3don587c4" path="res://models/residential 2/japanese_residential_home_01.glb" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://c2fcgl0aehmmy" path="res://models/corner shop/china_shop.glb" id="13_kvuet"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb40"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -22,7 +28,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mwb40"]
-size = Vector2(50, 50)
+size = Vector2(70, 80)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e2o6t"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
@@ -33,10 +39,11 @@ data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0
 environment = SubResource("Environment_e2o6t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.303937, -0.825057, 0.476344, 1.47562e-08, 0.499998, 0.866027, -0.952692, -0.263217, 0.151969, 0, 0, 0)
+transform = Transform3D(0.998895, 0.0407081, -0.0235027, 2.62509e-08, 0.499998, 0.866027, 0.0470056, -0.865069, 0.499445, -5, 0, -2)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 mesh = SubResource("PlaneMesh_mwb40")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -45,22 +52,61 @@ mesh = SubResource("PlaneMesh_mwb40")
 shape = SubResource("ConcavePolygonShape3D_e2o6t")
 
 [node name="PaperCharacter" parent="." instance=ExtResource("1_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.729875, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.729875, -2)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_lnu2h")]
-transform = Transform3D(-0.703618, 0, 0.710578, 0, 1, 0, -0.710578, 0, -0.703618, -11.1753, -4.76837e-07, 11.7093)
+transform = Transform3D(-0.703618, 0, 0.710578, 0, 1, 0, -0.710578, 0, -0.703618, -12.1753, -4.76837e-07, 3.7093)
 
 [node name="Japanese_Building" parent="." instance=ExtResource("3_lnu2h")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -6.13269, -0.979905, -1.2822)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.1327, -0.979905, -9.2822)
 
 [node name="testing" parent="." instance=ExtResource("4_lbhrr")]
-transform = Transform3D(0.919239, 0, -0.919239, 0, 1.3, 0, 0.919239, 0, 0.919239, 3, 1, -10)
+transform = Transform3D(0.919239, 0, -0.919239, 0, 1.3, 0, 0.919239, 0, 0.919239, 2, 1, -18)
 
 [node name="Sketchfab_Scene2" parent="." instance=ExtResource("5_iywne")]
-transform = Transform3D(-0.00848528, 0, -0.00848528, 0, 0.012, 0, 0.00848528, 0, -0.00848528, 15.6563, 0.677716, -1.98919)
+transform = Transform3D(-0.00848528, 0, -0.00848528, 0, 0.012, 0, 0.00848528, 0, -0.00848528, 14.6563, 0.677716, -9.98919)
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("6_p57ef")]
-transform = Transform3D(0.00919239, 0, -0.00919239, 0, 0.013, 0, 0.00919239, 0, 0.00919239, 19.5532, -4.76837e-07, 2.53548)
+transform = Transform3D(0.00919239, 0, -0.00919239, 0, 0.013, 0, 0.00919239, 0, 0.00919239, 18.5532, -4.76837e-07, -5.46452)
 
 [node name="house2render" parent="." instance=ExtResource("7_u5sy4")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -4, 0, -18)
+transform = Transform3D(0.848528, 0, -0.848528, 0, 1.2, 0, 0.848528, 0, 0.848528, -5, 0, -26)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("8_gee14")]
+transform = Transform3D(0.388909, 0, -0.388909, 0, 0.55, 0, 0.388909, 0, 0.388909, 30, 0, 2)
+
+[node name="Sketchfab_Scene5" parent="." instance=ExtResource("9_0tnpc")]
+transform = Transform3D(-0.00565685, 0, -0.00565685, 0, 0.008, 0, 0.00565685, 0, -0.00565685, 3, 0, 8)
+
+[node name="Sketchfab_Scene6" parent="." instance=ExtResource("10_vtaks")]
+transform = Transform3D(-0.00707107, 0, 0.00707107, 0, 0.01, 0, -0.00707107, 0, -0.00707107, 36, 0, 12)
+
+[node name="Sketchfab_Scene7" parent="." instance=ExtResource("11_kvpfn")]
+transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -19, 0, 4)
+
+[node name="Sketchfab_Scene12" parent="." instance=ExtResource("11_kvpfn")]
+transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -20, 0, -35)
+
+[node name="Sketchfab_Scene8" parent="." instance=ExtResource("11_kvpfn")]
+transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -24, 0, 9)
+
+[node name="Sketchfab_Scene11" parent="." instance=ExtResource("11_kvpfn")]
+transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -15, 0, -43)
+
+[node name="Sketchfab_Scene9" parent="." instance=ExtResource("12_dinhu")]
+transform = Transform3D(0.00707107, 0, -0.00707107, 0, 0.01, 0, 0.00707107, 0, 0.00707107, -30, 0, 14)
+
+[node name="Sketchfab_Scene10" parent="." instance=ExtResource("13_kvuet")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 11, 0, 15)
+
+[node name="Sketchfab_Scene13" parent="." instance=ExtResource("11_kvpfn")]
+transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -30, 0, -21)
+
+[node name="Sketchfab_Scene14" parent="." instance=ExtResource("11_kvpfn")]
+transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -25, 0, -28)
+
+[node name="Sketchfab_Scene15" parent="." instance=ExtResource("12_dinhu")]
+transform = Transform3D(0.00707107, 0, -0.00707107, 0, 0.01, 0, 0.00707107, 0, 0.00707107, -35, 0, -13)
+
+[node name="Sketchfab_Scene16" parent="." instance=ExtResource("12_dinhu")]
+transform = Transform3D(0.00707107, 0, -0.00707107, 0, 0.01, 0, 0.00707107, 0, 0.00707107, -40, 0, -5)
