@@ -12,7 +12,7 @@ var face_up: bool = false #Vertical
 @export var deceleration : float = 20.0
 var target_velocity : Vector3 = Vector3.ZERO
 
-#Cmaera Rotate Variables (ChatGPT)
+##Camera Rotate Variables (ChatGPT)
 #@export var follow_speed : float = 5.0
 #@export var rotation_speed : float = 5.0
 #@export var player_path : NodePath
@@ -39,15 +39,10 @@ func _physics_process(delta):
 	# Get keyboard input
 	movement_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	movement_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-
-	# Normalize to prevent faster diagonal movement
-	#movement_vector = movement_vector.normalized()
 	
 		# LIMIT the length instead of normalizing
 	if movement_vector.length() > 1.0:
 		movement_vector = movement_vector.normalized()
-		
-	
 
 	# Target velocity based on input
 	target_velocity.x = movement_vector.x * speed
@@ -61,7 +56,8 @@ func _physics_process(delta):
 	if movement_vector == Vector2.ZERO:
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 		velocity.z = move_toward(velocity.z, 0, deceleration * delta)
-
+	
+	
 	# Move the character
 	move_and_slide()
 	
@@ -134,4 +130,4 @@ func _physics_process(delta):
 #
 	##debugging: see CameraRoot direction
 	#print(target_rotation_y)
-	
+	#
