@@ -10,7 +10,7 @@ var pitch_input:= 0.0
 
 
 #Acceleration & Speed Variables (ChatGPT)
-@export var speed : float = 8.0
+@export var speed : float = 10.0
 @export var acceleration : float = 15.0
 @export var deceleration : float = 20.0
 var target_velocity : Vector3 = Vector3.ZERO
@@ -37,24 +37,26 @@ func _process(delta:float) -> void:
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.z = Input.get_axis("ui_up", "ui_down")
 
-	velocity = twist_pivot.basis * input * 1200.0 * delta
-
 		# LIMIT the length instead of normalizing
 	if input.length() > 1.0:
 		input = input.normalized()
+
+	#add the rotated input
+	var rotated_input = Vector3.ZERO
+	rotated_input = twist_pivot.basis * input
 #
-	## Target velocity based on input
-	#target_velocity.x = input.x * speed
-	#target_velocity.z = input.z * speed
-#
-	## Accelerate towards target velocity
-	#velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * delta)
-	#velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * delta)
-#
+	# Target velocity based on input
+	target_velocity.x = rotated_input.x * speed
+	target_velocity.z = rotated_input.z * speed
+
+	velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * delta)
+	velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * delta)
+##
 	## Apply deceleration if no input
-	#if input == Vector3.ZERO:
-		#velocity.x = move_toward(velocity.x, 0, deceleration * delta)
-		#velocity.z = move_toward(velocity.z, 0, deceleration * delta)
+	if input == Vector3.ZERO:
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		velocity.z = move_toward(velocity.z, 0, deceleration * delta)
+	
 	
 	#Move the character
 	move_and_slide()
@@ -65,7 +67,7 @@ func _process(delta:float) -> void:
 
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0.5, 0.5)
+	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0.2, 0.2)
 	twist_input = 0.0
 	pitch_input = 0.0
 
