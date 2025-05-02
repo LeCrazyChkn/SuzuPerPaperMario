@@ -30,7 +30,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mwb40"]
-size = Vector2(70, 80)
+size = Vector2(10, 10)
 
 [node name="Game" type="Node3D"]
 
@@ -42,72 +42,91 @@ transform = Transform3D(-0.231852, 0.842427, -0.486373, 7.64524e-09, 0.499998, 0
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
-visible = false
 mesh = SubResource("PlaneMesh_mwb40")
 
 [node name="PaperCharacter" parent="." instance=ExtResource("1_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.729875, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73, 0)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_lnu2h")]
 transform = Transform3D(-0.703618, 0, 0.710578, 0, 1, 0, -0.710578, 0, -0.703618, -12.1753, -4.76837e-07, 3.7093)
+visible = false
 
 [node name="Japanese_Building" parent="." instance=ExtResource("3_lnu2h")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.1327, -0.979905, -9.2822)
+visible = false
 
 [node name="testing" parent="." instance=ExtResource("4_lbhrr")]
 transform = Transform3D(0.919239, 0, -0.919239, 0, 1.3, 0, 0.919239, 0, 0.919239, 2, 1, -18)
+visible = false
 
 [node name="Sketchfab_Scene2" parent="." instance=ExtResource("5_iywne")]
 transform = Transform3D(-0.00848528, 0, -0.00848528, 0, 0.012, 0, 0.00848528, 0, -0.00848528, 14.6563, 0.677716, -9.98919)
+visible = false
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("6_p57ef")]
 transform = Transform3D(0.00919239, 0, -0.00919239, 0, 0.013, 0, 0.00919239, 0, 0.00919239, 18.5532, -4.76837e-07, -5.46452)
+visible = false
 
 [node name="house2render" parent="." instance=ExtResource("7_u5sy4")]
 transform = Transform3D(0.848528, 0, -0.848528, 0, 1.2, 0, 0.848528, 0, 0.848528, -5, 0, -26)
+visible = false
 
 [node name="Sketchfab_Scene4" parent="." instance=ExtResource("8_gee14")]
 transform = Transform3D(0.388909, 0, -0.388909, 0, 0.55, 0, 0.388909, 0, 0.388909, 30, 0, 2)
+visible = false
 
 [node name="Sketchfab_Scene5" parent="." instance=ExtResource("9_0tnpc")]
 transform = Transform3D(-0.00565685, 0, -0.00565685, 0, 0.008, 0, 0.00565685, 0, -0.00565685, 3, 0, 8)
+visible = false
 
 [node name="Sketchfab_Scene6" parent="." instance=ExtResource("10_vtaks")]
 transform = Transform3D(-0.00707107, 0, 0.00707107, 0, 0.01, 0, -0.00707107, 0, -0.00707107, 36, 0, 12)
+visible = false
 
 [node name="Sketchfab_Scene7" parent="." instance=ExtResource("11_kvpfn")]
 transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -19, 0, 4)
+visible = false
 
 [node name="Sketchfab_Scene12" parent="." instance=ExtResource("11_kvpfn")]
 transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -21, 0, -34)
+visible = false
 
 [node name="Sketchfab_Scene8" parent="." instance=ExtResource("11_kvpfn")]
 transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -24, 0, 9)
+visible = false
 
 [node name="Sketchfab_Scene11" parent="." instance=ExtResource("11_kvpfn")]
 transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -16, 0, -39)
+visible = false
 
 [node name="Sketchfab_Scene9" parent="." instance=ExtResource("12_dinhu")]
 transform = Transform3D(0.00707107, 0, -0.00707107, 0, 0.01, 0, 0.00707107, 0, 0.00707107, -30, 0, 14)
+visible = false
 
 [node name="Sketchfab_Scene10" parent="." instance=ExtResource("13_kvuet")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 11, 0, 15)
+visible = false
 
 [node name="Sketchfab_Scene13" parent="." instance=ExtResource("11_kvpfn")]
 transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -31, 0, -24)
+visible = false
 
 [node name="Sketchfab_Scene14" parent="." instance=ExtResource("11_kvpfn")]
 transform = Transform3D(0.00777817, 0, -0.00777817, 0, 0.011, 0, 0.00777817, 0, 0.00777817, -26, 0, -29)
+visible = false
 
 [node name="Sketchfab_Scene15" parent="." instance=ExtResource("12_dinhu")]
 transform = Transform3D(0.00707107, 0, -0.00707107, 0, 0.01, 0, 0.00707107, 0, 0.00707107, -37, 0, -18)
+visible = false
 
 [node name="Sketchfab_Scene16" parent="." instance=ExtResource("12_dinhu")]
 transform = Transform3D(0.00707107, 0, -0.00707107, 0, 0.01, 0, 0.00707107, 0, 0.00707107, -43, 0, -12)
+visible = false
 
 [node name="Sketchfab_Scene17" parent="." instance=ExtResource("14_trtic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.7461, 0.211662, 18.7159)
+visible = false
 
 [node name="Sketchfab_Scene18" parent="." instance=ExtResource("15_ir15t")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -42.7515, 0.0416298, 57.5114)
+visible = false

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://byulypn47e25d"]
+[gd_scene load_steps=10 format=3 uid="uid://byulypn47e25d"]
 
-[ext_resource type="Script" uid="uid://cn1feae6a8ayj" path="res://scripts/paper_character.gd" id="1_26ief"]
+[ext_resource type="Script" uid="uid://biwtfeqmumnhp" path="res://movement_script.gd" id="1_albgc"]
 [ext_resource type="Texture2D" uid="uid://bod7vsbbvkf6x" path="res://icon.svg" id="2_w7t1m"]
 [ext_resource type="Texture2D" uid="uid://bdkknxgnjx4br" path="res://sprites/dab5wii-75fe3686-159b-421c-9d8d-5c47f0f45c0d.png" id="3_w7t1m"]
-[ext_resource type="Script" uid="uid://p0eeea55vhp6" path="res://scripts/spring_arm_3d.gd" id="4_yxsa0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7t1m"]
 atlas = ExtResource("3_w7t1m")
@@ -74,7 +73,7 @@ animations = [{
 height = 1.61693
 
 [node name="PaperCharacter" type="CharacterBody3D"]
-script = ExtResource("1_26ief")
+script = ExtResource("1_albgc")
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ce2b1")
@@ -85,10 +84,9 @@ frame_progress = 0.415857
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_l3wyf")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
-top_level = true
-spring_length = 5.0
-script = ExtResource("4_yxsa0")
+[node name="TwistPivot" type="Node3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+[node name="PitchPivot" type="Node3D" parent="TwistPivot"]
+
+[node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
