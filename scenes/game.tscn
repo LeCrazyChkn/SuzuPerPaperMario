@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://d04jeq8cy8iby"]
+[gd_scene load_steps=21 format=3 uid="uid://d04jeq8cy8iby"]
 
+[ext_resource type="Texture2D" uid="uid://c4bmyiadnfjq0" path="res://sprites/animestyled_hdr.hdr" id="1_ca42v"]
 [ext_resource type="PackedScene" uid="uid://byulypn47e25d" path="res://scenes/paper_character.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://be8u7wlq30n72" path="res://models/rustic house/tokyo_suburban_rustic_house.glb" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://uppkiwepyswc" path="res://models/Japanese_Building.fbx" id="3_lnu2h"]
@@ -16,12 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://cilkbc1hxkwgg" path="res://models/city/city.glb" id="14_trtic"]
 [ext_resource type="PackedScene" uid="uid://lb0x56yerkiw" path="res://models/japantown/japan_street.glb" id="15_ir15t"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb40"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rysoc"]
+panorama = ExtResource("1_ca42v")
 
 [sub_resource type="Sky" id="Sky_80nbo"]
-sky_material = SubResource("ProceduralSkyMaterial_mwb40")
+sky_material = SubResource("PanoramaSkyMaterial_rysoc")
 
 [sub_resource type="Environment" id="Environment_e2o6t"]
 background_mode = 2
