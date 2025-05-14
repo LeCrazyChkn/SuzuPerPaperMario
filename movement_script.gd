@@ -132,7 +132,7 @@ func _process(delta:float) -> void:
 
 	#Play animation
 	sprite.play(new_suffix + new_animation + "M") 
-	sprite.play("default")
+	#sprite.play("default")
 
 
 
