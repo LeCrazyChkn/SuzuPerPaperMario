@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://byulypn47e25d"]
+[gd_scene load_steps=15 format=3 uid="uid://byulypn47e25d"]
 
 [ext_resource type="Script" uid="uid://biwtfeqmumnhp" path="res://movement_script.gd" id="1_albgc"]
+[ext_resource type="Texture2D" uid="uid://c1cggq1qpkn2" path="res://sprites/Neco-Arc_Remake.webp" id="2_87vvy"]
 [ext_resource type="Texture2D" uid="uid://bod7vsbbvkf6x" path="res://icon.svg" id="2_w7t1m"]
 [ext_resource type="Texture2D" uid="uid://bdkknxgnjx4br" path="res://sprites/dab5wii-75fe3686-159b-421c-9d8d-5c47f0f45c0d.png" id="3_w7t1m"]
 [ext_resource type="Texture2D" uid="uid://rex2k82uptrn" path="res://sprites/64-suzuwalk-nueclassic-1.png.png" id="4_y7gsy"]
-[ext_resource type="Script" uid="uid://p0eeea55vhp6" path="res://scripts/spring_arm_3d.gd" id="4_yxsa0"]
 [ext_resource type="Texture2D" uid="uid://bpqssq1bvx218" path="res://sprites/64-suzuwalk-nueclassic-2.png.png" id="5_87vvy"]
+[ext_resource type="Script" uid="uid://eb4pxdalsr3a" path="res://scripts/follow_player.gd" id="7_mj42h"]
+[ext_resource type="Script" uid="uid://c0pbvrbwxxbah" path="res://scenes/health_bar_management.gd" id="8_75tk4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce2b1"]
 atlas = ExtResource("3_w7t1m")
@@ -26,6 +28,9 @@ region = Rect2(5, 286, 95, 143)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ce2b1"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_87vvy")
+}, {
 "duration": 1.0,
 "texture": ExtResource("2_w7t1m")
 }, {
@@ -56,7 +61,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_w7t1m")
 }],
 "loop": true,
-"name": &"down_idle",
+"name": &"down_idleM",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y7gsy")
+}],
+"loop": true,
+"name": &"down_idleS",
 "speed": 5.0
 }, {
 "frames": [{
@@ -67,15 +80,34 @@ animations = [{
 "texture": SubResource("AtlasTexture_w7t1m")
 }],
 "loop": true,
-"name": &"down_walk",
+"name": &"down_walkM",
 "speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_87vvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y7gsy")
+}],
+"loop": true,
+"name": &"down_walkS",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l3wyf")
 }],
 "loop": true,
-"name": &"up_idle",
+"name": &"up_idleM",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y7gsy")
+}],
+"loop": true,
+"name": &"up_idleS",
 "speed": 5.0
 }, {
 "frames": [{
@@ -86,31 +118,46 @@ animations = [{
 "texture": SubResource("AtlasTexture_l3wyf")
 }],
 "loop": true,
-"name": &"up_walk",
+"name": &"up_walkM",
 "speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_87vvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y7gsy")
+}],
+"loop": true,
+"name": &"up_walkS",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l3wyf"]
-height = 1.61693
+radius = 0.4
+height = 1.5
 
 [node name="PaperCharacter" type="CharacterBody3D"]
 script = ExtResource("1_albgc")
 speed = 6.0
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0, 0)
 sprite_frames = SubResource("SpriteFrames_ce2b1")
-animation = &"down_walk"
-autoplay = "down_idle"
-frame_progress = 0.157844
+autoplay = "down_idleM"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_l3wyf")
 
 [node name="TwistPivot" type="Node3D" parent="."]
 top_level = true
-script = ExtResource("4_yxsa0")
+script = ExtResource("7_mj42h")
+follow_speed = 20.0
 
 [node name="PitchPivot" type="Node3D" parent="TwistPivot"]
 
 [node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 0.997258, 0.0740041, 0, -0.0740041, 0.997258, 0, 1, 3)
+
+[node name="HealthBarManagement" type="Node3D" parent="."]
+script = ExtResource("8_75tk4")

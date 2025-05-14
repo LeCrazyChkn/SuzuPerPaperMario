@@ -4,6 +4,7 @@ extends CharacterBody3D
 var mouse_sensitivity:= 0.001
 var twist_input:= 0.0
 var pitch_input:= 0.0
+@export var gravity_force := 0.0
 
 @onready var twist_pivot :=  $TwistPivot
 @onready var pitch_pivot :=  $TwistPivot/PitchPivot
@@ -26,6 +27,8 @@ var target_rotation_y : float = 0.0
 
 #ChatGPT sprite rotation variable
 @onready var camera = $TwistPivot/PitchPivot/Camera3D
+
+
 
 
 func _ready() -> void:
@@ -67,7 +70,7 @@ func _process(delta:float) -> void:
 
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0.2, 0.2)
+	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0.1, 0.4)
 	twist_input = 0.0
 	pitch_input = 0.0
 
@@ -109,7 +112,7 @@ func _process(delta:float) -> void:
 
 	#Making the player sprite always face the camera (ChatGPT)
 	var to_camera = camera.global_transform.origin - global_transform.origin
-	to_camera.y = 0  # Ignore vertical difference
+	#to_camera.y = 0  # Ignore vertical difference
 
 	if to_camera.length_squared() > 0.001:  # Avoid divide-by-zero
 		var base_rotation = atan2(to_camera.x, to_camera.z)
@@ -128,15 +131,16 @@ func _process(delta:float) -> void:
 
 
 	#Play animation
-	sprite.play(new_suffix + new_animation) 
+	sprite.play(new_suffix + new_animation + "M") 
+	sprite.play("default")
 
 
 
 	#Debugging: checking x and y inputs
 	print(input.x)
 	print(input.z)
-
-
+	
+	
 
 #Mouse Input function
 func _unhandled_input(event: InputEvent) -> void:
