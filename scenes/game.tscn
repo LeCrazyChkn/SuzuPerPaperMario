@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://d04jeq8cy8iby"]
+[gd_scene load_steps=16 format=3 uid="uid://d04jeq8cy8iby"]
 
 [ext_resource type="Texture2D" uid="uid://c4bmyiadnfjq0" path="res://sprites/animestyled_hdr.hdr" id="1_ca42v"]
 [ext_resource type="PackedScene" uid="uid://byulypn47e25d" path="res://scenes/paper_character.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://be8u7wlq30n72" path="res://models/rustic house/tokyo_suburban_rustic_house.glb" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://uppkiwepyswc" path="res://models/Japanese_Building.fbx" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://q7pim4mgrc64" path="res://models/cityrestaurant1/house2render.fbx" id="3_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bg0w0xabm0ftq" path="res://models/dojo textures/testing.fbx" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c4x4j47dcdv2t" path="res://models/jprestaurantgood/japanese_restaurant.glb" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://6k6la0y4c5i3" path="res://models/konbini/ultimate_japanese_konbini.glb" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://ddfu23u4p5jx5" path="res://models/bus stop/kyoto_cityscene_bus_stop.glb" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://c3k67xygdr3mb" path="res://scenes/ui.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c2fcgl0aehmmy" path="res://models/corner shop/china_shop.glb" id="13_kvuet"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rysoc"]
@@ -43,23 +45,31 @@ mesh = SubResource("PlaneMesh_mwb40")
 [node name="PaperCharacter" parent="." instance=ExtResource("1_yqjtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73, 0)
 
-[node name="Japanese_Building" parent="." instance=ExtResource("3_lnu2h")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.1327, -0.979905, -9.2822)
+[node name="Cityscape" type="Node3D" parent="."]
 
-[node name="Sketchfab_Scene4" parent="." instance=ExtResource("8_gee14")]
-transform = Transform3D(0.388909, 0, -0.388909, 0, 0.55, 0, 0.388909, 0, 0.388909, 30, 0, 2)
+[node name="house2render" parent="Cityscape" instance=ExtResource("3_vtaks")]
+transform = Transform3D(1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, -5, 0, -26)
 
-[node name="Sketchfab_Scene5" parent="." instance=ExtResource("9_0tnpc")]
-transform = Transform3D(-0.00565685, 0, -0.00565685, 0, 0.008, 0, 0.00565685, 0, -0.00565685, 3, 0, 8)
+[node name="testing" parent="Cityscape" instance=ExtResource("4_lbhrr")]
+transform = Transform3D(1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, 6.20048, 1, -14.1417)
 
-[node name="Sketchfab_Scene6" parent="." instance=ExtResource("10_vtaks")]
-transform = Transform3D(-0.00707107, 0, 0.00707107, 0, 0.01, 0, -0.00707107, 0, -0.00707107, 36, -0.262319, 12)
-
-[node name="Sketchfab_Scene10" parent="." instance=ExtResource("13_kvuet")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 11, 0, 15)
-
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_lnu2h")]
+[node name="Sketchfab_Scene" parent="Cityscape" instance=ExtResource("2_lnu2h")]
 transform = Transform3D(-0.703618, 0, 0.710578, 0, 1, 0, -0.710578, 0, -0.703618, -12.1753, -4.76837e-07, 3.7093)
 
-[node name="testing" parent="." instance=ExtResource("4_lbhrr")]
-transform = Transform3D(1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, 6.20048, 1, -14.1417)
+[node name="Sketchfab_Scene10" parent="Cityscape" instance=ExtResource("13_kvuet")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 11, 0, 15)
+
+[node name="Sketchfab_Scene6" parent="Cityscape" instance=ExtResource("10_vtaks")]
+transform = Transform3D(-0.00707107, 0, 0.00707107, 0, 0.01, 0, -0.00707107, 0, -0.00707107, 36, -0.262319, 12)
+
+[node name="Sketchfab_Scene5" parent="Cityscape" instance=ExtResource("9_0tnpc")]
+transform = Transform3D(-0.00565685, 0, -0.00565685, 0, 0.008, 0, 0.00565685, 0, -0.00565685, 3, 0, 8)
+
+[node name="Sketchfab_Scene4" parent="Cityscape" instance=ExtResource("8_gee14")]
+transform = Transform3D(0.388909, 0, -0.388909, 0, 0.55, 0, 0.388909, 0, 0.388909, 30, 0, 2)
+
+[node name="Japanese_Building" parent="Cityscape" instance=ExtResource("3_lnu2h")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.1327, -0.979905, -9.2822)
+
+[node name="UI" parent="." instance=ExtResource("11_kvpfn")]
+mouse_filter = 2

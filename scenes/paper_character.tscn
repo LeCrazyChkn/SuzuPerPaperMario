@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://byulypn47e25d"]
 
-[ext_resource type="Script" uid="uid://biwtfeqmumnhp" path="res://movement_script.gd" id="1_albgc"]
+[ext_resource type="Script" uid="uid://biwtfeqmumnhp" path="res://scripts/movement_script.gd" id="1_albgc"]
 [ext_resource type="Texture2D" uid="uid://c1cggq1qpkn2" path="res://sprites/Neco-Arc_Remake.webp" id="2_87vvy"]
 [ext_resource type="Texture2D" uid="uid://bod7vsbbvkf6x" path="res://icon.svg" id="2_w7t1m"]
 [ext_resource type="Texture2D" uid="uid://bdkknxgnjx4br" path="res://sprites/dab5wii-75fe3686-159b-421c-9d8d-5c47f0f45c0d.png" id="3_w7t1m"]
 [ext_resource type="Texture2D" uid="uid://rex2k82uptrn" path="res://sprites/64-suzuwalk-nueclassic-1.png.png" id="4_y7gsy"]
 [ext_resource type="Texture2D" uid="uid://bpqssq1bvx218" path="res://sprites/64-suzuwalk-nueclassic-2.png.png" id="5_87vvy"]
 [ext_resource type="Script" uid="uid://eb4pxdalsr3a" path="res://scripts/follow_player.gd" id="7_mj42h"]
-[ext_resource type="Script" uid="uid://c0pbvrbwxxbah" path="res://scenes/health_bar_management.gd" id="8_75tk4"]
+[ext_resource type="Script" uid="uid://c0pbvrbwxxbah" path="res://scripts/health_bar_management.gd" id="8_75tk4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce2b1"]
 atlas = ExtResource("3_w7t1m")
