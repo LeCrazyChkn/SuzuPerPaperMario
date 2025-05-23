@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd20g22uthslb"
-path="res://.godot/imported/Crusade (1) (1).png-fd91a6b9288701ae500de01a2f7e1178.ctex"
+uid="uid://bxrlbaehfa058"
+path="res://.godot/imported/b737b6ba5ae88c8e59474d4fb6abc955.png-b403181ceda8f880e19b1ce7a326ee2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Crusade (1) (1).png"
-dest_files=["res://.godot/imported/Crusade (1) (1).png-fd91a6b9288701ae500de01a2f7e1178.ctex"]
+source_file="res://sprites/b737b6ba5ae88c8e59474d4fb6abc955.png"
+dest_files=["res://.godot/imported/b737b6ba5ae88c8e59474d4fb6abc955.png-b403181ceda8f880e19b1ce7a326ee2f.ctex"]
 
 [params]
 

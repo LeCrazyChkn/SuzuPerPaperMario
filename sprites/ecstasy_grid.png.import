@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://31npau8bpmwi"
-path="res://.godot/imported/Crusade (1).png-1c2d78d4cc1c696d6b673b44f66d882c.ctex"
+uid="uid://dy8ah48l77kpe"
+path="res://.godot/imported/ecstasy_grid.png-766a06a43bb92770b17f5efd94fcdecd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Crusade (1).png"
-dest_files=["res://.godot/imported/Crusade (1).png-1c2d78d4cc1c696d6b673b44f66d882c.ctex"]
+source_file="res://sprites/ecstasy_grid.png"
+dest_files=["res://.godot/imported/ecstasy_grid.png-766a06a43bb92770b17f5efd94fcdecd.ctex"]
 
 [params]
 

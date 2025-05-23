@@ -1,112 +1,276 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3k67xygdr3mb"]
+[gd_scene load_steps=15 format=3 uid="uid://c3k67xygdr3mb"]
 
-[ext_resource type="Texture2D" uid="uid://cw4m2h0ri0uay" path="res://sprites/heart-png-38773 (1).png" id="1_wm3ai"]
-[ext_resource type="Texture2D" uid="uid://h1te2vl2xfx6" path="res://sprites/output-onlinepngtools copy.png" id="2_8dubc"]
-[ext_resource type="Texture2D" uid="uid://b20ir0ia0ntpd" path="res://sprites/output-onlinepngtools (1).png" id="3_p7vwb"]
-[ext_resource type="Texture2D" uid="uid://c8uxu12pfm3hb" path="res://sprites/output-onlinepngtools.png" id="4_ktti3"]
-[ext_resource type="Texture2D" uid="uid://bbexvc211mx4s" path="res://sprites/output-onlinepngtools (1) copy.png" id="5_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://cxc8nq0s8dvhm" path="res://sprites/pilcrow.png" id="1_6rmj2"]
+[ext_resource type="Texture2D" uid="uid://cltwxhfhrl0rv" path="res://sprites/heart_black.png" id="1_ktti3"]
+[ext_resource type="Texture2D" uid="uid://dguq52hse2ngs" path="res://sprites/heart_border.png" id="2_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://2cbal2gkx3b8" path="res://sprites/dumbell.png" id="4_cgfq5"]
 [ext_resource type="Script" uid="uid://cwm4jnepcka17" path="res://scripts/rich_text_label.gd" id="5_cgfq5"]
-[ext_resource type="Texture2D" uid="uid://dd20g22uthslb" path="res://sprites/Crusade (1) (1).png" id="7_vdcm2"]
-[ext_resource type="Texture2D" uid="uid://dvocdmc54vhpp" path="res://sprites/11-22-3-3-12-1-3m.jpg" id="8_6rmj2"]
-[ext_resource type="Texture2D" uid="uid://31npau8bpmwi" path="res://sprites/Crusade (1).png" id="9_vsj0x"]
+[ext_resource type="Texture2D" uid="uid://bce8wfop1cotf" path="res://sprites/ecstasy_black.png" id="7_cgfq5"]
+[ext_resource type="Script" uid="uid://wm3xgs2lquko" path="res://scripts/health_bar.gd" id="8_5sqrc"]
+[ext_resource type="Texture2D" uid="uid://dvocdmc54vhpp" path="res://sprites/rainbow_diag.jpg" id="8_6rmj2"]
+[ext_resource type="Texture2D" uid="uid://4rpc5eot0xt1" path="res://sprites/new_heart.png" id="8_ilk7v"]
+[ext_resource type="Texture2D" uid="uid://dy8ah48l77kpe" path="res://sprites/ecstasy_grid.png" id="8_ktti3"]
+[ext_resource type="Texture2D" uid="uid://by45wjhgst4hr" path="res://sprites/person.png" id="9_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://bfnqqka6e081v" path="res://sprites/mental-health.png" id="10_6rmj2"]
+[ext_resource type="Texture2D" uid="uid://bxrlbaehfa058" path="res://sprites/b737b6ba5ae88c8e59474d4fb6abc955.png" id="11_vsj0x"]
 
 [sub_resource type="Theme" id="Theme_qsv74"]
-default_font_size = 100
+default_font_size = 49
 
 [node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.472
+anchor_bottom = 1.329
+offset_right = 0.759766
+offset_bottom = -0.320068
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 92.0
-offset_top = 36.0
-offset_right = 132.0
-offset_bottom = 76.0
+[node name="PenMeter" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.679
+anchor_right = 0.679
+offset_left = -368.533
+offset_right = 82.4672
+offset_bottom = 205.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Pen" type="TextureRect" parent="PenMeter"]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 38.0
-offset_right = 171.0
-offset_bottom = 167.0
-texture = ExtResource("1_wm3ai")
-expand_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="TextureRect"]
-layout_mode = 0
-offset_left = 288.0
-offset_top = 1.0
-offset_right = 417.0
-offset_bottom = 130.0
-texture = ExtResource("2_8dubc")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
-layout_mode = 0
-offset_left = 431.0
-offset_right = 560.0
-offset_bottom = 129.0
-texture = ExtResource("3_p7vwb")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 185.0
-offset_top = 37.0
-offset_right = 314.0
-offset_bottom = 166.0
-texture = ExtResource("4_ktti3")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 2424.0
+offset_left = 105.0
 offset_top = 55.0
-offset_right = 2553.0
-offset_bottom = 184.0
-texture = ExtResource("5_7dvkv")
+offset_right = 169.0
+offset_bottom = 119.0
+texture = ExtResource("1_6rmj2")
 expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="PenMeter"]
 layout_mode = 0
-offset_left = 2571.0
+offset_left = 187.0
 offset_top = 52.0
-offset_right = 2831.0
-offset_bottom = 190.0
+offset_right = 357.0
+offset_bottom = 120.0
 theme = SubResource("Theme_qsv74")
 theme_override_font_sizes/bold_italics_font_size = 72
 text = "1500"
 fit_content = true
 script = ExtResource("5_cgfq5")
 
-[node name="TextureRect5" type="TextureRect" parent="."]
+[node name="Ecstasy" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 184.0
+offset_right = 40.0
+offset_bottom = 224.0
+
+[node name="EcstasyBottom" type="TextureRect" parent="Ecstasy"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = -37.0
-offset_right = 708.0
-offset_bottom = 639.0
-texture = ExtResource("7_vdcm2")
+offset_left = 26.0
+offset_top = -21.0
+offset_right = 600.0
+offset_bottom = 62.0
+texture = ExtResource("7_cgfq5")
 expand_mode = 1
 
-[node name="TextureRect6" type="TextureRect" parent="."]
+[node name="EcstasyBar" type="TextureProgressBar" parent="Ecstasy/EcstasyBottom"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 232.0
-offset_right = 438.0
-offset_bottom = 295.0
-texture = ExtResource("8_6rmj2")
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 556.0
+offset_bottom = 63.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("8_6rmj2")
+script = ExtResource("8_5sqrc")
+
+[node name="EcstasyGrid" type="TextureRect" parent="Ecstasy"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -23.0
+offset_right = 599.0
+offset_bottom = 64.0
+texture = ExtResource("8_ktti3")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="."]
+[node name="Phys" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 85.0
+offset_right = 125.0
+offset_bottom = 40.0
+
+[node name="PhysBottom" type="TextureRect" parent="Phys"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = -37.0
-offset_right = 708.0
-offset_bottom = 639.0
-texture = ExtResource("9_vsj0x")
+offset_left = -40.0
+offset_top = 28.0
+offset_right = 80.0
+offset_bottom = 148.0
+texture = ExtResource("1_ktti3")
+expand_mode = 1
+
+[node name="PhysBar" type="TextureProgressBar" parent="Phys/PhysBottom"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 115.0
+offset_bottom = 115.0
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("8_ilk7v")
+tint_progress = Color(1, 0.239167, 0.17, 1)
+script = ExtResource("8_5sqrc")
+
+[node name="PhysBorder" type="TextureRect" parent="Phys"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = 26.0
+offset_right = 85.0
+offset_bottom = 161.0
+texture = ExtResource("2_p7vwb")
+expand_mode = 1
+
+[node name="PhysIcon" type="TextureRect" parent="Phys"]
+layout_mode = 0
+offset_left = -5.99999
+offset_top = 89.0
+offset_right = 42.0
+offset_bottom = 117.0
+rotation = -0.523598
+texture = ExtResource("4_cgfq5")
+expand_mode = 1
+
+[node name="Soc" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 224.0
+offset_right = 264.0
+offset_bottom = 40.0
+
+[node name="SocBottom" type="TextureRect" parent="Soc"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 28.0
+offset_right = 80.0
+offset_bottom = 148.0
+texture = ExtResource("1_ktti3")
+expand_mode = 1
+
+[node name="SocBar" type="TextureProgressBar" parent="Soc/SocBottom"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 115.0
+offset_bottom = 115.0
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("8_ilk7v")
+tint_progress = Color(1, 0.571167, 0.17, 1)
+script = ExtResource("8_5sqrc")
+
+[node name="SocBorder" type="TextureRect" parent="Soc"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = 26.0
+offset_right = 85.0
+offset_bottom = 161.0
+texture = ExtResource("2_p7vwb")
+expand_mode = 1
+
+[node name="SocIcon" type="TextureRect" parent="Soc"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 71.0
+offset_right = 35.0
+offset_bottom = 109.0
+texture = ExtResource("9_vdcm2")
+expand_mode = 1
+
+[node name="Ment" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 360.0
+offset_right = 400.0
+offset_bottom = 40.0
+
+[node name="MentBottom" type="TextureRect" parent="Ment"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 28.0
+offset_right = 80.0
+offset_bottom = 148.0
+texture = ExtResource("1_ktti3")
+expand_mode = 1
+
+[node name="MentBar" type="TextureProgressBar" parent="Ment/MentBottom"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 115.0
+offset_bottom = 115.0
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("8_ilk7v")
+tint_progress = Color(1, 0.903167, 0.17, 1)
+script = ExtResource("8_5sqrc")
+
+[node name="MentBorder" type="TextureRect" parent="Ment"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = 26.0
+offset_right = 85.0
+offset_bottom = 161.0
+texture = ExtResource("2_p7vwb")
+expand_mode = 1
+
+[node name="MentIcon" type="TextureRect" parent="Ment"]
+layout_mode = 0
+offset_left = -2.99999
+offset_top = 65.0
+offset_right = 45.0
+offset_bottom = 113.0
+texture = ExtResource("11_vsj0x")
+expand_mode = 1
+
+[node name="Emo" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 496.0
+offset_right = 536.0
+offset_bottom = 40.0
+
+[node name="EmoBottom" type="TextureRect" parent="Emo"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 28.0
+offset_right = 80.0
+offset_bottom = 148.0
+texture = ExtResource("1_ktti3")
+expand_mode = 1
+
+[node name="EmoBar" type="TextureProgressBar" parent="Emo/EmoBottom"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 115.0
+offset_bottom = 115.0
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("8_ilk7v")
+tint_progress = Color(0.6875, 1, 0.25, 1)
+script = ExtResource("8_5sqrc")
+
+[node name="EmoBorder" type="TextureRect" parent="Emo"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = 26.0
+offset_right = 85.0
+offset_bottom = 161.0
+texture = ExtResource("2_p7vwb")
+expand_mode = 1
+
+[node name="EmoIcon" type="TextureRect" parent="Emo"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 65.0
+offset_right = 45.0
+offset_bottom = 112.0
+texture = ExtResource("10_6rmj2")
 expand_mode = 1

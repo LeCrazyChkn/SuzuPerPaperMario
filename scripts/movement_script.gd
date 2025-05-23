@@ -30,6 +30,40 @@ var target_rotation_y : float = 0.0
 
 
 
+#Health Bar Variables (ChatGPT)
+
+signal phys_changed(value: float)
+signal soc_changed(value: float)
+signal ment_changed(value: float)
+signal emo_changed(value: float)
+signal ecstasy_changed(value: float)
+
+var phys := 100.0
+var soc := 100.0
+var ment := 100.0
+var emo := 100.0
+var ecstasy := 100.0
+
+func change_stat(stat: String, amount: float):
+	match stat:
+		"phys":
+			phys = clamp(phys + amount, 0, 100)
+			emit_signal("phys_changed", phys)
+		"soc":
+			soc = clamp(soc + amount, 0, 100)
+			emit_signal("soc_changed", soc)
+		"ment":
+			ment = clamp(ment + amount, 0, 100)
+			emit_signal("ment_changed", ment)
+		"emo":
+			emo = clamp(emo + amount, 0, 100)
+			emit_signal("emo_changed", emo)
+		"ecstasy":
+			ecstasy = clamp(ecstasy + amount, 0, 100)
+			emit_signal("ecstasy_changed", ecstasy)
+
+
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -126,10 +160,6 @@ func _process(delta:float) -> void:
 		var current_rotation = sprite.rotation.y
 		sprite.rotation.y = lerp_angle(current_rotation, target_rotation, flip_speed)
 
-
-
-
-
 	#Play animation
 	sprite.play(new_suffix + new_animation + "M") 
 	#sprite.play("default")
@@ -137,14 +167,32 @@ func _process(delta:float) -> void:
 
 
 	#Debugging: checking x and y inputs
-	print(input.x)
-	print(input.z)
-	
-	
+	#print(input.x)
+	#print(input.z)
+
+
+
+
+
+
+
+
+
 
 #Mouse Input function
 func _unhandled_input(event: InputEvent) -> void:
-		if event is InputEventMouseMotion:
-			if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-				twist_input = event.relative.x * mouse_sensitivity
-				pitch_input = event.relative.y * mouse_sensitivity 
+	if event is InputEventMouseMotion:
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			twist_input = event.relative.x * mouse_sensitivity
+			pitch_input = event.relative.y * mouse_sensitivity 
+	
+	#Function for health to go down
+	if event.is_action_pressed("camera_rotate_left"):
+		change_stat("phys", -5)
+		change_stat("soc", -15)
+		change_stat("ment", -7)
+		change_stat("emo", -10)
+	if event.is_action_pressed("camera_rotate_right"):
+		change_stat("ecstasy", -10)
+	if event.is_action_pressed("ui_focus_next"):
+		change_stat("ecstasy", 10)

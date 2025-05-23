@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byulypn47e25d"]
+[gd_scene load_steps=14 format=3 uid="uid://byulypn47e25d"]
 
 [ext_resource type="Script" uid="uid://biwtfeqmumnhp" path="res://scripts/movement_script.gd" id="1_albgc"]
 [ext_resource type="Texture2D" uid="uid://c1cggq1qpkn2" path="res://sprites/Neco-Arc_Remake.webp" id="2_87vvy"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://rex2k82uptrn" path="res://sprites/64-suzuwalk-nueclassic-1.png.png" id="4_y7gsy"]
 [ext_resource type="Texture2D" uid="uid://bpqssq1bvx218" path="res://sprites/64-suzuwalk-nueclassic-2.png.png" id="5_87vvy"]
 [ext_resource type="Script" uid="uid://eb4pxdalsr3a" path="res://scripts/follow_player.gd" id="7_mj42h"]
-[ext_resource type="Script" uid="uid://c0pbvrbwxxbah" path="res://scripts/health_bar_management.gd" id="8_75tk4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce2b1"]
 atlas = ExtResource("3_w7t1m")
@@ -159,6 +158,3 @@ follow_speed = 20.0
 [node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.997258, 0.0740041, 0, -0.0740041, 0.997258, 0, 1, 3)
 fov = 60.0
-
-[node name="HealthBarManagement" type="Node3D" parent="."]
-script = ExtResource("8_75tk4")

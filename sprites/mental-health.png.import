@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8uxu12pfm3hb"
-path="res://.godot/imported/output-onlinepngtools.png-4b468ca1d7ab2a7fe916972a68cdbe48.ctex"
+uid="uid://bfnqqka6e081v"
+path="res://.godot/imported/mental-health.png-77e8c5d2f3aeac8354490e3ea97e2244.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/output-onlinepngtools.png"
-dest_files=["res://.godot/imported/output-onlinepngtools.png-4b468ca1d7ab2a7fe916972a68cdbe48.ctex"]
+source_file="res://sprites/mental-health.png"
+dest_files=["res://.godot/imported/mental-health.png-77e8c5d2f3aeac8354490e3ea97e2244.ctex"]
 
 [params]
 
