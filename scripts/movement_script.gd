@@ -32,11 +32,7 @@ var target_rotation_y : float = 0.0
 
 #Health Bar Variables (ChatGPT)
 
-signal phys_changed(value: float)
-signal soc_changed(value: float)
-signal ment_changed(value: float)
-signal emo_changed(value: float)
-signal ecstasy_changed(value: float)
+signal stats_changed(phys: float, soc: float, ment: float, emo: float, ecstasy: float)
 
 var phys := 100.0
 var soc := 100.0
@@ -44,23 +40,15 @@ var ment := 100.0
 var emo := 100.0
 var ecstasy := 100.0
 
-func change_stat(stat: String, amount: float):
-	match stat:
-		"phys":
-			phys = clamp(phys + amount, 0, 100)
-			emit_signal("phys_changed", phys)
-		"soc":
-			soc = clamp(soc + amount, 0, 100)
-			emit_signal("soc_changed", soc)
-		"ment":
-			ment = clamp(ment + amount, 0, 100)
-			emit_signal("ment_changed", ment)
-		"emo":
-			emo = clamp(emo + amount, 0, 100)
-			emit_signal("emo_changed", emo)
-		"ecstasy":
-			ecstasy = clamp(ecstasy + amount, 0, 100)
-			emit_signal("ecstasy_changed", ecstasy)
+func update_stats(new_phys: float, new_soc: float, new_ment: float, new_emo: float, new_ecstasy: float):
+	phys = clamp(new_phys, 0, 100)
+	soc = clamp(new_soc, 0, 100)
+	ment = clamp(new_ment, 0, 100)
+	emo = clamp(new_emo, 0, 100)
+	ecstasy = clamp(new_ecstasy, 0, 100)
+	
+	emit_signal("stats_changed", phys, soc, ment, emo, ecstasy)
+
 
 
 
@@ -187,12 +175,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			pitch_input = event.relative.y * mouse_sensitivity 
 	
 	#Function for health to go down
+	
 	if event.is_action_pressed("camera_rotate_left"):
-		change_stat("phys", -5)
-		change_stat("soc", -15)
-		change_stat("ment", -7)
-		change_stat("emo", -10)
+		update_stats(phys - 10, soc+10, ment - 5, emo, ecstasy + 10)
 	if event.is_action_pressed("camera_rotate_right"):
-		change_stat("ecstasy", -10)
+		update_stats(phys-20, soc, ment+10, emo+10, ecstasy -10)
 	if event.is_action_pressed("ui_focus_next"):
-		change_stat("ecstasy", 10)
+		update_stats(phys + 13, soc-7, ment, emo-18, ecstasy)

@@ -139,6 +139,7 @@ height = 1.5
 [node name="PaperCharacter" type="CharacterBody3D"]
 script = ExtResource("1_albgc")
 speed = 6.0
+acceleration = 20.0
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ce2b1")
