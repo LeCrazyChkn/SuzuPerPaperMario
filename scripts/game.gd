@@ -1,21 +1,21 @@
+# Autoload: Game.gd
 extends Node3D
 
-@onready var ui = $UI
+signal stats_changed(phys, soc, ment, emo, ecstasy)
 
-@onready var phys_bar = ui.get_node("Phys/PhysBottom/PhysBar")
-@onready var soc_bar = ui.get_node("Soc/SocBottom/SocBar")
-@onready var ment_bar = ui.get_node("Ment/MentBottom/MentBar")
-@onready var emo_bar = ui.get_node("Emo/EmoBottom/EmoBar")
-@onready var ecstasy_bar = ui.get_node("Ecstasy/EcstasyBottom/EcstasyBar")
+var phys := 100.0
+var soc := 100.0
+var ment := 100.0
+var emo := 100.0
+var ecstasy := 100.0
 
-@onready var player = $PaperCharacter
+var active_quests: Array = []
 
-func _ready():
-	player.stats_changed.connect(_on_stats_changed)
-
-func _on_stats_changed(phys, soc, ment, emo, ecstasy):
-	phys_bar.set_health(phys)
-	soc_bar.set_health(soc)
-	ment_bar.set_health(ment)
-	emo_bar.set_health(emo)
-	ecstasy_bar.set_health(ecstasy)
+func update_stats(delta: Dictionary):
+	phys = clamp(phys + delta.get("phys", 0), 0, 100)
+	soc = clamp(soc + delta.get("soc", 0), 0, 100)
+	ment = clamp(ment + delta.get("ment", 0), 0, 100)
+	emo = clamp(emo + delta.get("emo", 0), 0, 100)
+	ecstasy = clamp(ecstasy + delta.get("ecstasy", 0), 0, 100)
+	
+	emit_signal("stats_changed", phys, soc, ment, emo, ecstasy)

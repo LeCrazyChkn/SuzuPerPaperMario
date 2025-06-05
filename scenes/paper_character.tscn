@@ -157,5 +157,5 @@ follow_speed = 20.0
 [node name="PitchPivot" type="Node3D" parent="TwistPivot"]
 
 [node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.997258, 0.0740041, 0, -0.0740041, 0.997258, 0, 1, 3)
+transform = Transform3D(1, 0, 0, 0, 0.999439, 0.0335041, 0, -0.0335041, 0.999439, 0, 0.874031, 3.61736)
 fov = 60.0

@@ -177,8 +177,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	#Function for health to go down
 	
 	if event.is_action_pressed("camera_rotate_left"):
-		update_stats(phys - 10, soc+10, ment - 5, emo, ecstasy + 10)
+		Game.update_stats({ "soc": -10, "ment": -7 })
 	if event.is_action_pressed("camera_rotate_right"):
-		update_stats(phys-20, soc, ment+10, emo+10, ecstasy -10)
+		Game.update_stats({ "phys": -10, "emo": -15 })
 	if event.is_action_pressed("ui_focus_next"):
-		update_stats(phys + 13, soc-7, ment, emo-18, ecstasy)
+		Game.update_stats({ "ecstasy": -5, "ment": +20 })
+		
+	if event.is_action_pressed("ui_accept"):
+		var delta = QuestManager.advance_quest("Fix Tower")
+		Game.update_stats(delta)

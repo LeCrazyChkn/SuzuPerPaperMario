@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3k67xygdr3mb"]
+[gd_scene load_steps=16 format=3 uid="uid://c3k67xygdr3mb"]
 
 [ext_resource type="Texture2D" uid="uid://cxc8nq0s8dvhm" path="res://sprites/pilcrow.png" id="1_6rmj2"]
 [ext_resource type="Texture2D" uid="uid://cltwxhfhrl0rv" path="res://sprites/heart_black.png" id="1_ktti3"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://by45wjhgst4hr" path="res://sprites/person.png" id="9_vdcm2"]
 [ext_resource type="Texture2D" uid="uid://bfnqqka6e081v" path="res://sprites/mental-health.png" id="10_6rmj2"]
 [ext_resource type="Texture2D" uid="uid://bxrlbaehfa058" path="res://sprites/b737b6ba5ae88c8e59474d4fb6abc955.png" id="11_vsj0x"]
+[ext_resource type="Script" uid="uid://c7xyi0hdgclul" path="res://scripts/quest_label.gd" id="14_ilk7v"]
 
 [sub_resource type="Theme" id="Theme_qsv74"]
 default_font_size = 49
@@ -274,3 +275,20 @@ offset_right = 45.0
 offset_bottom = 112.0
 texture = ExtResource("10_6rmj2")
 expand_mode = 1
+
+[node name="Quests" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_ilk7v")
+
+[node name="QuestLabel" type="TextEdit" parent="Quests"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.679
+anchor_right = 0.679
+offset_left = 1571.84
+offset_top = 205.0
+offset_right = 1871.84
+offset_bottom = 590.0
+grow_horizontal = 2

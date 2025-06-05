@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d04jeq8cy8iby"]
+[gd_scene load_steps=21 format=3 uid="uid://d04jeq8cy8iby"]
 
 [ext_resource type="Texture2D" uid="uid://c4bmyiadnfjq0" path="res://sprites/animestyled_hdr.hdr" id="1_ca42v"]
 [ext_resource type="Script" uid="uid://bhof2tqkggg27" path="res://scripts/game.gd" id="1_dinhu"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://ddfu23u4p5jx5" path="res://models/bus stop/kyoto_cityscene_bus_stop.glb" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://c3k67xygdr3mb" path="res://scenes/UI.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://c2fcgl0aehmmy" path="res://models/corner shop/china_shop.glb" id="13_kvuet"]
+[ext_resource type="Script" uid="uid://c4tpxwol4c4xs" path="res://scripts/ui.gd" id="14_trtic"]
+[ext_resource type="Script" uid="uid://g00321jhi0dc" path="res://scripts/quest_manager.gd" id="15_ir15t"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rysoc"]
 panorama = ExtResource("1_ca42v")
@@ -80,3 +82,7 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="UI" parent="." instance=ExtResource("11_kvpfn")]
 mouse_filter = 2
+script = ExtResource("14_trtic")
+
+[node name="QuestManager" type="Node" parent="."]
+script = ExtResource("15_ir15t")
