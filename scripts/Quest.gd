@@ -1,14 +1,15 @@
 # Quest.gd
 class_name Quest
-extends Resource
+extends RefCounted
 
-var name: String
-var description: String
-var current_stage := 0
-var completed := false
-var stages: Array = []  # Each stage is a Dictionary of stat changes
+var name: String = ""
+var description: String = ""
+var current_stage: int = 0
+var stages: Array[Dictionary] = []
+var completed: bool = false
 
 func advance_stage() -> Dictionary:
+	print("Advancing quest stage:", name, "from", current_stage)
 	if current_stage < stages.size():
 		var changes = stages[current_stage]
 		current_stage += 1

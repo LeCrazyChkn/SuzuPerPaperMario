@@ -9,17 +9,17 @@ func _ready():
 	_init_quests()
 
 func _init_quests():
-	var quest1 = Quest.new()
+	var quest1 := Quest.new()
 	quest1.name = "Fix Tower"
-	quest1.description = "Help the townsfolk repair the broken tower."
+	quest1.description = "Fix the broken tower."
 	quest1.stages = [
-		{ "phys": -10, "soc": 5 },
-		{ "ment": 10 },
-		{ "phys": 5, "ecstasy": 2 }
+		{ "soc": 3, "phys": 2 },
+		{ "ment": 5 }
 	]
 	add_quest(quest1)
 
-	var quest2 = Quest.new()
+
+	var quest2 := Quest.new()
 	quest2.name = "Collect Mushrooms"
 	quest2.description = "Find 5 glowing mushrooms in the forest."
 	quest2.stages = [

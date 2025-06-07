@@ -184,5 +184,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		Game.update_stats({ "ecstasy": -5, "ment": +20 })
 		
 	if event.is_action_pressed("ui_accept"):
+		print(QuestManager.get_active_quests())
 		var delta = QuestManager.advance_quest("Fix Tower")
 		Game.update_stats(delta)
