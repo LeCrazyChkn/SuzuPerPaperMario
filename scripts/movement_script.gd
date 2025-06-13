@@ -92,7 +92,7 @@ func _process(delta:float) -> void:
 
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0.1, 0.4)
+	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0, 0)
 	twist_input = 0.0
 	pitch_input = 0.0
 
@@ -181,9 +181,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("camera_rotate_right"):
 		Game.update_stats({ "phys": -10, "emo": -15 })
 	if event.is_action_pressed("ui_focus_next"):
-		Game.update_stats({ "ecstasy": -5, "ment": +20 })
+		Game.update_stats({ "ecstasy": 10})
 		
 	if event.is_action_pressed("ui_accept"):
 		print(QuestManager.get_active_quests())
 		var delta = QuestManager.advance_quest("Fix Tower")
+		Game.update_stats(delta)
+	if event.is_action_pressed("ui_filedialog_show_hidden"):
+		print(QuestManager.get_active_quests())
+		var delta = QuestManager.advance_quest("Collect Mushrooms")
 		Game.update_stats(delta)

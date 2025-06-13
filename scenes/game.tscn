@@ -31,6 +31,7 @@ tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trtic"]
 albedo_texture = ExtResource("3_kvuet")
+metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mwb40"]
 material = SubResource("StandardMaterial3D_trtic")

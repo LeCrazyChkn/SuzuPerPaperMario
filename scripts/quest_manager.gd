@@ -13,8 +13,8 @@ func _init_quests():
 	quest1.name = "Fix Tower"
 	quest1.description = "Fix the broken tower."
 	quest1.stages = [
-		{ "soc": 3, "phys": 2 },
-		{ "ment": 5 }
+		{ "soc": 20, "phys": 30 },
+		{ "ment": 10 }
 	]
 	add_quest(quest1)
 
@@ -23,8 +23,8 @@ func _init_quests():
 	quest2.name = "Collect Mushrooms"
 	quest2.description = "Find 5 glowing mushrooms in the forest."
 	quest2.stages = [
-		{ "emo": 3 },
-		{ "ment": 5, "soc": 2 }
+		{ "emo": 30 },
+		{ "ment": 10, "soc": 20 }
 	]
 	add_quest(quest2)
 
@@ -33,7 +33,8 @@ func add_quest(quest: Quest):
 
 func advance_quest(name: String) -> Dictionary:
 	if not quests.has(name):
-		print("Quest not found: ", name)
+		#debug
+		#print("Quest not found: ", name)
 		return {}
 	var quest = quests[name]
 	var result = quest.advance_stage()

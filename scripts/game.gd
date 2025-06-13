@@ -2,6 +2,8 @@
 extends Node3D
 
 signal stats_changed(phys, soc, ment, emo, ecstasy)
+signal stat_values_updated(changes: Dictionary)
+
 
 var phys := 100.0
 var soc := 100.0
@@ -12,10 +14,25 @@ var ecstasy := 100.0
 var active_quests: Array = []
 
 func update_stats(delta: Dictionary):
-	phys = clamp(phys + delta.get("phys", 0), 0, 100)
-	soc = clamp(soc + delta.get("soc", 0), 0, 100)
-	ment = clamp(ment + delta.get("ment", 0), 0, 100)
-	emo = clamp(emo + delta.get("emo", 0), 0, 100)
-	ecstasy = clamp(ecstasy + delta.get("ecstasy", 0), 0, 100)
+	var changes := {}
 	
-	emit_signal("stats_changed", phys, soc, ment, emo, ecstasy)
+	# Update and track changes
+	if delta.has("phys"):
+		phys = clamp(phys + delta["phys"], 0, 100)
+		changes["phys"] = phys
+	if delta.has("soc"):
+		soc = clamp(soc + delta["soc"], 0, 100)
+		changes["soc"] = soc
+	if delta.has("ment"):
+		ment = clamp(ment + delta["ment"], 0, 100)
+		changes["ment"] = ment
+	if delta.has("emo"):
+		emo = clamp(emo + delta["emo"], 0, 100)
+		changes["emo"] = emo
+	if delta.has("ecstasy"):
+		ecstasy = clamp(ecstasy + delta["ecstasy"], 0, 100)
+		changes["ecstasy"] = ecstasy
+
+	emit_signal("stat_values_updated", changes)
+	
+	print(changes)

@@ -9,7 +9,8 @@ var stages: Array[Dictionary] = []
 var completed: bool = false
 
 func advance_stage() -> Dictionary:
-	print("Advancing quest stage:", name, "from", current_stage)
+	#debug
+	#print("Advancing quest stage:", name, "from", current_stage)
 	if current_stage < stages.size():
 		var changes = stages[current_stage]
 		current_stage += 1

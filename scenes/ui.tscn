@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3k67xygdr3mb"]
+[gd_scene load_steps=17 format=3 uid="uid://c3k67xygdr3mb"]
 
 [ext_resource type="Texture2D" uid="uid://cxc8nq0s8dvhm" path="res://sprites/pilcrow.png" id="1_6rmj2"]
+[ext_resource type="Script" uid="uid://c4tpxwol4c4xs" path="res://scripts/ui.gd" id="1_ilk7v"]
 [ext_resource type="Texture2D" uid="uid://cltwxhfhrl0rv" path="res://sprites/heart_black.png" id="1_ktti3"]
 [ext_resource type="Texture2D" uid="uid://dguq52hse2ngs" path="res://sprites/heart_border.png" id="2_p7vwb"]
 [ext_resource type="Texture2D" uid="uid://2cbal2gkx3b8" path="res://sprites/dumbell.png" id="4_cgfq5"]
-[ext_resource type="Script" uid="uid://cwm4jnepcka17" path="res://scripts/rich_text_label.gd" id="5_cgfq5"]
 [ext_resource type="Texture2D" uid="uid://bce8wfop1cotf" path="res://sprites/ecstasy_black.png" id="7_cgfq5"]
 [ext_resource type="Script" uid="uid://wm3xgs2lquko" path="res://scripts/health_bar.gd" id="8_5sqrc"]
 [ext_resource type="Texture2D" uid="uid://dvocdmc54vhpp" path="res://sprites/rainbow_diag.jpg" id="8_6rmj2"]
@@ -18,6 +18,10 @@
 [sub_resource type="Theme" id="Theme_qsv74"]
 default_font_size = 49
 
+[sub_resource type="GDScript" id="GDScript_5sqrc"]
+script/source = "extends RichTextLabel
+"
+
 [node name="UI" type="Control"]
 layout_mode = 3
 anchor_right = 1.472
@@ -26,6 +30,7 @@ offset_right = 0.759766
 offset_bottom = -0.320068
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ilk7v")
 
 [node name="PenMeter" type="Control" parent="."]
 layout_mode = 1
@@ -54,7 +59,7 @@ theme = SubResource("Theme_qsv74")
 theme_override_font_sizes/bold_italics_font_size = 72
 text = "1500"
 fit_content = true
-script = ExtResource("5_cgfq5")
+script = SubResource("GDScript_5sqrc")
 
 [node name="Ecstasy" type="Control" parent="."]
 anchors_preset = 0
@@ -209,7 +214,7 @@ value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("8_ilk7v")
-tint_progress = Color(1, 0.903167, 0.17, 1)
+tint_progress = Color(1, 0.883333, 0, 1)
 script = ExtResource("8_5sqrc")
 
 [node name="MentBorder" type="TextureRect" parent="Ment"]

@@ -7,12 +7,17 @@ extends Control
 @onready var ecstasy_bar = $Ecstasy/EcstasyBottom/EcstasyBar
 
 func _ready():
-	Game.stats_changed.connect(_on_stats_changed)
-	
+	Game.stat_values_updated.connect(_on_stat_values_updated)
 
-func _on_stats_changed(phys, soc, ment, emo, ecstasy):
-	phys_bar.set_health(phys)
-	soc_bar.set_health(soc)
-	ment_bar.set_health(ment)
-	emo_bar.set_health(emo)
-	ecstasy_bar.set_health(ecstasy)
+
+func _on_stat_values_updated(changes: Dictionary):
+	if changes.has("phys"):
+		phys_bar.set_health(changes["phys"])
+	if changes.has("soc"):
+		soc_bar.set_health(changes["soc"])
+	if changes.has("ment"):
+		ment_bar.set_health(changes["ment"])
+	if changes.has("emo"):
+		emo_bar.set_health(changes["emo"])
+	if changes.has("ecstasy"):
+		ecstasy_bar.set_health(changes["ecstasy"])
