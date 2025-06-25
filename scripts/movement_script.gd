@@ -4,7 +4,7 @@ extends CharacterBody3D
 var mouse_sensitivity:= 0.001
 var twist_input:= 0.0
 var pitch_input:= 0.0
-@export var gravity_force := 0.0
+@export var gravity_force := 0.5
 
 @onready var twist_pivot :=  $TwistPivot
 @onready var pitch_pivot :=  $TwistPivot/PitchPivot
@@ -58,6 +58,12 @@ func _ready() -> void:
 
 
 func _process(delta:float) -> void:
+	
+	#gravity
+	velocity.y = velocity.y - gravity_force
+	
+	
+	#movement
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.z = Input.get_axis("ui_up", "ui_down")
@@ -92,7 +98,7 @@ func _process(delta:float) -> void:
 
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0, 0)
+	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -1, 1)
 	twist_input = 0.0
 	pitch_input = 0.0
 

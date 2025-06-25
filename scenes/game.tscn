@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d04jeq8cy8iby"]
+[gd_scene load_steps=22 format=3 uid="uid://d04jeq8cy8iby"]
 
 [ext_resource type="Texture2D" uid="uid://c4bmyiadnfjq0" path="res://sprites/animestyled_hdr.hdr" id="1_ca42v"]
 [ext_resource type="Script" uid="uid://bhof2tqkggg27" path="res://scripts/game.gd" id="1_dinhu"]
@@ -37,6 +37,9 @@ metallic_specular = 0.0
 material = SubResource("StandardMaterial3D_trtic")
 size = Vector2(50, 50)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ir15t"]
+data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_dinhu")
 
@@ -44,15 +47,20 @@ script = ExtResource("1_dinhu")
 environment = SubResource("Environment_e2o6t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.879598, 0.411982, -0.237858, 1.63398e-08, 0.499999, 0.866026, 0.475721, -0.761754, 0.439798, -5, 0, -2)
+transform = Transform3D(0.879597, 0.411986, -0.23786, 1.63398e-08, 0.499999, 0.866026, 0.47572, -0.761753, 0.439798, -4.98533, 0.0771198, -2.00082)
 light_energy = 1.889
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_mwb40")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ir15t")
+
 [node name="PaperCharacter" parent="." instance=ExtResource("1_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681446, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.9662, 0)
 
 [node name="Cityscape" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8.12771, 0, -2.52764)
@@ -64,22 +72,22 @@ transform = Transform3D(1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, -5
 transform = Transform3D(1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, 6.20048, 1, -14.1417)
 
 [node name="Sketchfab_Scene" parent="Cityscape" instance=ExtResource("2_lnu2h")]
-transform = Transform3D(-0.703618, 0, 0.710578, 0, 1, 0, -0.710578, 0, -0.703618, -12.1753, -4.76837e-07, 3.7093)
+transform = Transform3D(-0.703618, 0, 0.710578, 0, 1, 0, -0.710578, 0, -0.703618, -12.1753, -0.0852399, 3.7093)
 
 [node name="Sketchfab_Scene10" parent="Cityscape" instance=ExtResource("13_kvuet")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 11, 0, 15)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 11, -0.363074, 15)
 
 [node name="Sketchfab_Scene6" parent="Cityscape" instance=ExtResource("10_vtaks")]
-transform = Transform3D(0.00707107, 0, 0.00707107, 0, 0.01, 0, -0.00707107, 0, 0.00707107, 23.9792, -0.262319, 9.87868)
+transform = Transform3D(0.00707107, 0, 0.00707107, 0, 0.01, 0, -0.00707107, 0, 0.00707107, 23.9792, -0.288008, 9.87868)
 
 [node name="Sketchfab_Scene5" parent="Cityscape" instance=ExtResource("9_0tnpc")]
-transform = Transform3D(-0.00565685, 0, -0.00565685, 0, 0.008, 0, 0.00565685, 0, -0.00565685, 3, 0, 8)
+transform = Transform3D(-0.00565685, 0, -0.00565685, 0, 0.008, 0, 0.00565685, 0, -0.00565685, 3, -0.141794, 8)
 
 [node name="Sketchfab_Scene4" parent="Cityscape" instance=ExtResource("8_gee14")]
-transform = Transform3D(0.388909, 0, -0.388909, 0, 0.55, 0, 0.388909, 0, 0.388909, 23.636, 0, -1.53553)
+transform = Transform3D(0.388909, 0, -0.388909, 0, 0.55, 0, 0.388909, 0, 0.388909, 23.636, -0.0975635, -1.53553)
 
 [node name="Japanese_Building" parent="Cityscape" instance=ExtResource("3_lnu2h")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.1327, -0.979905, -9.2822)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -7.1327, -1.07241, -9.2822)
 
 [node name="UI" parent="." instance=ExtResource("11_kvpfn")]
 mouse_filter = 2

@@ -134,7 +134,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l3wyf"]
 radius = 0.4
-height = 1.5
+height = 1.38904
 
 [node name="PaperCharacter" type="CharacterBody3D"]
 script = ExtResource("1_albgc")
@@ -142,17 +142,16 @@ speed = 6.0
 acceleration = 20.0
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00236225, 0, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_ce2b1")
 animation = &"down_idleM"
 autoplay = "down_idleM"
-frame_progress = 0.00304926
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_l3wyf")
 
 [node name="TwistPivot" type="Node3D" parent="."]
-top_level = true
 script = ExtResource("7_mj42h")
 follow_speed = 20.0
 

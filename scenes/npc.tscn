@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://ddv4c3gghxv15"]
 
-[ext_resource type="Script" uid="uid://ds0lccvjki0jd" path="res://scenes/npc.gd" id="1_abqhh"]
+[ext_resource type="Script" uid="uid://ds0lccvjki0jd" path="res://scripts/npc.gd" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://dfl6yb6ahrg2c" path="res://sprites/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png" id="1_nh2m4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abqhh"]
@@ -136,13 +136,17 @@ radius = 1.125
 script = ExtResource("1_abqhh")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-06, 0.00468177, -2.31266e-05)
+billboard = 2
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_gl1un")
+animation = &"walk"
+frame_progress = 0.795826
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wuru7")
 
-[node name="ChatDetectionArea" type="Area3D" parent="."]
+[node name="chat_detection_area" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChatDetectionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chat_detection_area"]
 shape = SubResource("SphereShape3D_abqhh")
