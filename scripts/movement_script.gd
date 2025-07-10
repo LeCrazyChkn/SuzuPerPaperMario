@@ -28,7 +28,8 @@ var target_rotation_y : float = 0.0
 #ChatGPT sprite rotation variable
 @onready var camera = $TwistPivot/PitchPivot/Camera3D
 
-
+#dialog variables
+@onready var actionable_finder: Area3D = $Sprite/Direction/ActionableFinder
 
 #Health Bar Variables (ChatGPT)
 
@@ -155,7 +156,7 @@ func _process(delta:float) -> void:
 		sprite.rotation.y = lerp_angle(current_rotation, target_rotation, flip_speed)
 
 	#Play animation
-	sprite.play(new_suffix + new_animation + "M") 
+	sprite.play(new_suffix + new_animation + "S") 
 	#sprite.play("default")
 
 
@@ -189,7 +190,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_focus_next"):
 		Game.update_stats({ "ecstasy": 10})
 		
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("a_button"):
 		print(QuestManager.get_active_quests())
 		var delta = QuestManager.advance_quest("Fix Tower")
 		Game.update_stats(delta)
@@ -197,3 +198,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		print(QuestManager.get_active_quests())
 		var delta = QuestManager.advance_quest("Collect Mushrooms")
 		Game.update_stats(delta)
+	if event.is_action_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
+		
+		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddv4c3gghxv15"]
+[gd_scene load_steps=15 format=3 uid="uid://ddv4c3gghxv15"]
 
 [ext_resource type="Script" uid="uid://ds0lccvjki0jd" path="res://scripts/npc.gd" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://dfl6yb6ahrg2c" path="res://sprites/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png" id="1_nh2m4"]
@@ -129,9 +129,6 @@ animations = [{
 radius = 0.4
 height = 1.2
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_abqhh"]
-radius = 1.125
-
 [node name="NonPlayerCharacter" type="CharacterBody3D"]
 script = ExtResource("1_abqhh")
 
@@ -145,8 +142,3 @@ frame_progress = 0.795826
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wuru7")
-
-[node name="chat_detection_area" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="chat_detection_area"]
-shape = SubResource("SphereShape3D_abqhh")

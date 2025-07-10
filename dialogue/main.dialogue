@@ -1,0 +1,32 @@
+~ start
+
+Toad: Hi kameraad !
+if State.key_status == "has":
+	Toad: Did you get me that key, Mario ?
+	- Give
+		set State.key_status = "gave":
+		
+		Toad: Sugoi kameraad.
+	- Keep
+		Mario: No u.
+		Toad: Why kameraad. 
+elif State.key_status == "gave":
+	Toad: Thanks mate.
+else:
+	Toad: I need a key kameraad.
+
+=> END
+
+
+~ tree
+if State.key_status == "":
+	Mario: Key desu. 
+	- take
+		set State.key_status = "has"
+		Mario: Got it. 
+	- nein 
+		Mario: Okie dokie.
+else:
+	Mario: ...
+
+=> END

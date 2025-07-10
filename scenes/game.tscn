@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d04jeq8cy8iby"]
+[gd_scene load_steps=26 format=3 uid="uid://d04jeq8cy8iby"]
 
 [ext_resource type="Texture2D" uid="uid://c4bmyiadnfjq0" path="res://sprites/animestyled_hdr.hdr" id="1_ca42v"]
 [ext_resource type="Script" uid="uid://bhof2tqkggg27" path="res://scripts/game.gd" id="1_dinhu"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://c2fcgl0aehmmy" path="res://models/corner shop/china_shop.glb" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://ddv4c3gghxv15" path="res://scenes/npc.tscn" id="15_ca42v"]
 [ext_resource type="Script" uid="uid://g00321jhi0dc" path="res://scripts/quest_manager.gd" id="15_ir15t"]
+[ext_resource type="PackedScene" uid="uid://chctiu50rqmsw" path="res://scenes/actionable.tscn" id="16_rysoc"]
+[ext_resource type="Resource" uid="uid://dbqm2ptbwbls5" path="res://dialogue/main.dialogue" id="17_ssvqc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rysoc"]
 panorama = ExtResource("1_ca42v")
@@ -25,7 +27,8 @@ sky_material = SubResource("PanoramaSkyMaterial_rysoc")
 [sub_resource type="Environment" id="Environment_e2o6t"]
 background_mode = 2
 sky = SubResource("Sky_80nbo")
-ambient_light_color = Color(1, 0.0392656, 0.324244, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
 tonemap_mode = 2
 
@@ -40,6 +43,12 @@ size = Vector2(50, 50)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ir15t"]
 data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_264po"]
+radius = 0.958331
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rysoc"]
+radius = 1.25101
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_dinhu")
 
@@ -48,7 +57,6 @@ environment = SubResource("Environment_e2o6t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.879597, 0.411986, -0.23786, 1.63398e-08, 0.499999, 0.866026, 0.47572, -0.761753, 0.439798, -4.98533, 0.0771198, -2.00082)
-light_energy = 1.889
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -60,7 +68,7 @@ mesh = SubResource("PlaneMesh_mwb40")
 shape = SubResource("ConcavePolygonShape3D_ir15t")
 
 [node name="PaperCharacter" parent="." instance=ExtResource("1_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.9662, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.710711, 0)
 
 [node name="Cityscape" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8.12771, 0, -2.52764)
@@ -97,3 +105,19 @@ script = ExtResource("15_ir15t")
 
 [node name="NonPlayerCharacter" parent="." instance=ExtResource("15_ca42v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6622, 0.604776, 0)
+
+[node name="Actionable" parent="NonPlayerCharacter" instance=ExtResource("16_rysoc")]
+dialogue_resource = ExtResource("17_ssvqc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonPlayerCharacter/Actionable"]
+shape = SubResource("SphereShape3D_264po")
+
+[node name="Door" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.51101, -2.38419e-07, -4.31717)
+
+[node name="Actionable" parent="Door" instance=ExtResource("16_rysoc")]
+dialogue_resource = ExtResource("17_ssvqc")
+dialogue_start = "tree"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Actionable"]
+shape = SubResource("SphereShape3D_rysoc")
