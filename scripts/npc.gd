@@ -1,5 +1,6 @@
 extends CharacterBody3D
 @onready var sprite := $AnimatedSprite3D
+@export var type := "suzunpc_1"
 
 var flip_speed: float = 0.2 #in radians.
 var face_right: bool = true #horizontal rotation
@@ -16,8 +17,9 @@ var is_roaming = true
 var is_chatting = false
 
 
-@onready var camera = get_parent().get_node("PaperCharacter/TwistPivot/PitchPivot/Camera3D")
-var player 
+@onready var camera = get_parent().get_node("PaperCharacter/TwistPivot/PitchPivot/SpringArm3D/Camera3D")
+@onready var player = get_parent().get_node("PaperCharacter/CollisionShape3D")
+
 var player_in_chat_zone = false
 
 enum 
@@ -31,18 +33,26 @@ func _ready() -> void:
 	randomize()
 
 
+
+
+
+
+
 func _process(delta: float) -> void:
-	var flip 
+	
+
+
+	
 	
 	look_at(camera.global_transform.origin,Vector3.UP)
 	
-	if current_state == IDLE:
-		sprite.play("idle") 
-	elif current_state == TALK:
-		sprite.play("talk")
+	#if player_in_chat_zone:
+		#sprite.play("talk") 
+	#else:
+		#sprite.play("idle")
+		#
 		
-		
-#sprite.play("walk")
+	sprite.play(type)
 		#
 		##Flip animation: Check if facing right
 		#if dir.x > 0.0: 

@@ -1,32 +1,118 @@
 ~ start
 
-Toad: Hi kameraad !
+
 if State.key_status == "has":
-	Toad: Did you get me that key, Mario ?
+	Hanako: Did you find my key?...
 	- Give
 		set State.key_status = "gave":
-		
-		Toad: Sugoi kameraad.
+		Hanako: Oh, thank you so much!
+		set State.dialogue_quest("Find the Key")
 	- Keep
-		Mario: No u.
-		Toad: Why kameraad. 
+		Suzu: ...
+		Hanako: Oh... Okay... 
 elif State.key_status == "gave":
-	Toad: Thanks mate.
+	Hanako: Thanks again for helping me find my key.
+	
 else:
-	Toad: I need a key kameraad.
+	Hanako: Oh...
+	Hanako: I've lost my key around here somewhere...
+	Hanako: I think it was near one of the boxes in front of the dojo. 
+	
 
 => END
 
 
 ~ tree
 if State.key_status == "":
-	Mario: Key desu. 
-	- take
+	Suzu: It's a key. 
+	- Take
 		set State.key_status = "has"
-		Mario: Got it. 
-	- nein 
-		Mario: Okie dokie.
+		Suzu: Got it. 
+		set State.dialogue_quest("Find the Key")
+	- Leave 
+		Suzu: Maybe not.
 else:
-	Mario: ...
+	Suzu: ...
+
+=> END
+
+
+~ lad 
+if State.nene_status == "met":
+	Shousuke: Hey again.
+	- Wanna be friends?
+	Shousuke: Oh... Sure!
+	set State.dialogue_quest("Make some Friends")
+	Shousuke: I bet you're wondering where everyone is, huh?
+	- Yes.
+	Shousuke: There aren't too many people in this area of the village... they're all on the other side of that gate. 
+	Shousuke: I bet if you went over to	Mr. Fujiwara's ramen shop over there, he could help you out. 
+else:
+	Shousuke: ...
+	Shousuke: The weather's nice today, I think. 
+	Shousuke: The ramen shop up there is pretty good too.
+	Shousuke: ... 
+
+=> END 
+
+
+~ bus
+
+Suzu: ...
+Suzu: This is quite a strange town.
+Suzu: I'd better help some people out. 
+
+=> END
+
+
+~ cat 
+Suzu: ...
+Suzu: It's a cat. 
+- pet cat
+	Suzu: ... 
+	Suzu: That's nice. 
+	set State.dialogue_stat("ment", 10)
+	set State.dialogue_stat("ecstasy", 10)
+	
+=> END 
+
+
+
+~ glasses
+if State.tomo_status == "met":
+	Tomo: ...
+else:
+	Tomo: ...Hi...
+	- How are you? 
+	Tomo: Oh... I'm fine, thanks. 
+	Tomo: I run this convenience store here... but everyone's in the village square. 
+	Tomo: I think something bad happenned... I hope they're alright...
+	set State.tomo_status = "met"
+
+
+
+=> END
+
+
+~ eightysix
+Eighty-Six: [[*beep*|*honk*]]
+=> END
+
+~ nene
+if State.nene_status == "met":
+	Nene: Y'know...
+	Nene: It's quite nice up here. *
+	Nene: I wonder what they're up to in the village square.
+else:
+	Nene: Oh, hi there!
+	Nene: I haven't seen you around before, you must be new around here...
+	Nene: Right? 
+	- Yes. 
+	Nene: ...
+	- Wanna be friends?
+	Nene: ... Of course!
+	set State.dialogue_quest("Find some Friends")
+	set State.nene_status = "met"
+	Nene: Making friends is pretty important in places like these... You should get to know everyone quickly. 
 
 => END

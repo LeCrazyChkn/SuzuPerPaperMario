@@ -20,11 +20,11 @@ func _init_quests():
 
 
 	var quest2 := Quest.new()
-	quest2.name = "Collect Mushrooms"
-	quest2.description = "Find 5 glowing mushrooms in the forest."
+	quest2.name = "Find the Key"
+	quest2.description = "Find the missing key near the boxes."
 	quest2.stages = [
-		{ "emo": 30 },
-		{ "ment": 10, "soc": 20 }
+		{ "phys": 10 },
+		{ "emo": 10, "soc": 20 }
 	]
 	add_quest(quest2)
 

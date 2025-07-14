@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3k67xygdr3mb"]
+[gd_scene load_steps=18 format=3 uid="uid://c3k67xygdr3mb"]
 
 [ext_resource type="Texture2D" uid="uid://cxc8nq0s8dvhm" path="res://sprites/pilcrow.png" id="1_6rmj2"]
 [ext_resource type="Script" uid="uid://c4tpxwol4c4xs" path="res://scripts/ui.gd" id="1_ilk7v"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bfnqqka6e081v" path="res://sprites/mental-health.png" id="10_6rmj2"]
 [ext_resource type="Texture2D" uid="uid://bxrlbaehfa058" path="res://sprites/b737b6ba5ae88c8e59474d4fb6abc955.png" id="11_vsj0x"]
 [ext_resource type="Script" uid="uid://c7xyi0hdgclul" path="res://scripts/quest_label.gd" id="14_ilk7v"]
+[ext_resource type="FontFile" uid="uid://dbcehgnkae6f3" path="res://dialogue/MangaSpeak-BaBl.ttf" id="15_flkkw"]
 
 [sub_resource type="Theme" id="Theme_qsv74"]
 default_font_size = 49
@@ -51,11 +52,12 @@ expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PenMeter"]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 52.0
-offset_right = 357.0
-offset_bottom = 120.0
+offset_left = 193.0
+offset_top = 65.0
+offset_right = 363.0
+offset_bottom = 133.0
 theme = SubResource("Theme_qsv74")
+theme_override_fonts/normal_font = ExtResource("15_flkkw")
 theme_override_font_sizes/bold_italics_font_size = 72
 text = "1500"
 fit_content = true
@@ -82,7 +84,7 @@ offset_left = 22.0
 offset_top = 19.0
 offset_right = 556.0
 offset_bottom = 63.0
-value = 100.0
+value = 90.0
 nine_patch_stretch = true
 texture_progress = ExtResource("8_6rmj2")
 script = ExtResource("8_5sqrc")
@@ -117,7 +119,7 @@ offset_left = 5.0
 offset_top = 15.0
 offset_right = 115.0
 offset_bottom = 115.0
-value = 100.0
+value = 70.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("8_ilk7v")
@@ -164,7 +166,7 @@ offset_left = 5.0
 offset_top = 15.0
 offset_right = 115.0
 offset_bottom = 115.0
-value = 100.0
+value = 70.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("8_ilk7v")
@@ -210,7 +212,7 @@ offset_left = 5.0
 offset_top = 15.0
 offset_right = 115.0
 offset_bottom = 115.0
-value = 100.0
+value = 70.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("8_ilk7v")
@@ -256,7 +258,7 @@ offset_left = 5.0
 offset_top = 15.0
 offset_right = 115.0
 offset_bottom = 115.0
-value = 100.0
+value = 70.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("8_ilk7v")
@@ -287,6 +289,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_ilk7v")
 
+[node name="QuestLabel2" type="TextEdit" parent="Quests"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.679
+anchor_right = 0.679
+offset_left = 1564.84
+offset_top = 200.0
+offset_right = 1876.84
+offset_bottom = 597.0
+grow_horizontal = 2
+theme_override_colors/background_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 12
+theme_override_fonts/font = ExtResource("15_flkkw")
+theme_override_font_sizes/font_size = 25
+
 [node name="QuestLabel" type="TextEdit" parent="Quests"]
 layout_mode = 1
 anchors_preset = -1
@@ -297,3 +315,8 @@ offset_top = 205.0
 offset_right = 1871.84
 offset_bottom = 590.0
 grow_horizontal = 2
+theme_override_colors/background_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 12
+theme_override_fonts/font = ExtResource("15_flkkw")
+theme_override_font_sizes/font_size = 25

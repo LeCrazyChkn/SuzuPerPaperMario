@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6ntx3lp0d0bc"]
+[gd_scene load_steps=12 format=3 uid="uid://c6ntx3lp0d0bc"]
 
 [ext_resource type="Script" uid="uid://vj72fbyyhtck" path="res://dialogue/balloon.gd" id="1_36de5"]
-[ext_resource type="Texture2D" uid="uid://c4bmyiadnfjq0" path="res://sprites/animestyled_hdr.hdr" id="2_3fodd"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://dbcehgnkae6f3" path="res://dialogue/MangaSpeak-BaBl.ttf" id="3_3fodd"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -64,6 +64,15 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fodd"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fud8g"]
+
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
@@ -85,7 +94,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 164.0
-offset_top = -227.0
+offset_top = -238.0
 offset_right = -244.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -94,34 +103,45 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_3fodd")
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
-texture = ExtResource("2_3fodd")
+texture = SubResource("CanvasTexture_fud8g")
 expand_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/TextureRect"]
 layout_mode = 2
-offset_right = 1446.0
-offset_bottom = 191.0
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 1416.0
+offset_bottom = 181.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/TextureRect/MarginContainer"]
-layout_mode = 2
-
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/TextureRect/MarginContainer/VBoxContainer"]
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/TextureRect/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 7
+theme_override_fonts/normal_font = ExtResource("3_3fodd")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/TextureRect/MarginContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
+[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/TextureRect/VBoxContainer" instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_3fodd")
+theme_override_font_sizes/normal_font_size = 40
 text = "Dialogue..."
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
@@ -132,10 +152,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
+offset_left = 696.0
+offset_top = 317.0
+offset_right = 953.0
+offset_bottom = 387.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -145,8 +165,15 @@ script = ExtResource("3_72ixx")
 response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
+use_parent_material = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
 text = "Response example"
+expand_icon = true
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

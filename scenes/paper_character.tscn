@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://byulypn47e25d"]
+[gd_scene load_steps=23 format=3 uid="uid://byulypn47e25d"]
 
 [ext_resource type="Script" uid="uid://biwtfeqmumnhp" path="res://scripts/movement_script.gd" id="1_albgc"]
 [ext_resource type="Texture2D" uid="uid://c1cggq1qpkn2" path="res://sprites/Neco-Arc_Remake.webp" id="2_87vvy"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bpqssq1bvx218" path="res://sprites/64-suzuwalk-nueclassic-2.png.png" id="5_87vvy"]
 [ext_resource type="Texture2D" uid="uid://d35cs3mhxlssm" path="res://sprites/64-suzumisc.png" id="7_75tk4"]
 [ext_resource type="Script" uid="uid://eb4pxdalsr3a" path="res://scripts/follow_player.gd" id="7_mj42h"]
+[ext_resource type="Texture2D" uid="uid://cqajv2lstelh1" path="res://sprites/64-suzufrontfacing-1.png.png" id="8_75tk4"]
+[ext_resource type="Texture2D" uid="uid://3l5holnkidqd" path="res://sprites/Screenshot 2025-07-14 at 10.00.05.png" id="10_e05wm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce2b1"]
 atlas = ExtResource("3_w7t1m")
@@ -101,11 +103,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("8_75tk4")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_e05wm")
 }],
 "loop": true,
 "name": &"down_idleS",
-"speed": 1.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -176,17 +181,18 @@ radius = 0.4
 height = 1.38904
 
 [node name="PaperCharacter" type="CharacterBody3D"]
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("1_albgc")
-speed = 6.0
+speed = 15.0
 acceleration = 20.0
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.00236225, 0, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_ce2b1")
-animation = &"up_idleS"
-autoplay = "down_idleM"
-frame_progress = 0.579072
+animation = &"down_idleS"
+autoplay = "down_idleS"
 
 [node name="Direction" type="Marker3D" parent="Sprite"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428845, 0, 0)
@@ -208,6 +214,14 @@ follow_speed = 20.0
 
 [node name="PitchPivot" type="Node3D" parent="TwistPivot"]
 
-[node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.999439, 0.0335041, 0, -0.0335041, 0.999439, 0, 0.874031, 3.61736)
+[node name="SpringArm3D" type="SpringArm3D" parent="TwistPivot/PitchPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999439, 0.0335041, 0, -0.0335041, 0.999439, 0, -0.125969, 3.61736)
 fov = 60.0
+
+[node name="InteractBubble" type="Sprite3D" parent="TwistPivot"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1, 0.5485, 0)
+texture = ExtResource("10_e05wm")

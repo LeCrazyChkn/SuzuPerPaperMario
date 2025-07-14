@@ -1,11 +1,13 @@
 extends CharacterBody3D
 
+#Interaction bubble
+@onready var interaction_bubble := $TwistPivot/InteractBubble
+
 #This is the script for the first tutorial game, but changed to be for the CharacterBody3D instead.
 var mouse_sensitivity:= 0.001
 var twist_input:= 0.0
 var pitch_input:= 0.0
 @export var gravity_force := 0.5
-
 @onready var twist_pivot :=  $TwistPivot
 @onready var pitch_pivot :=  $TwistPivot/PitchPivot
 
@@ -26,21 +28,21 @@ var player : Node3D
 var target_rotation_y : float = 0.0
 
 #ChatGPT sprite rotation variable
-@onready var camera = $TwistPivot/PitchPivot/Camera3D
+@onready var camera = $TwistPivot/PitchPivot/SpringArm3D/Camera3D
 
 #dialog variables
 @onready var actionable_finder: Area3D = $Sprite/Direction/ActionableFinder
 
 #Health Bar Variables (ChatGPT)
-
 signal stats_changed(phys: float, soc: float, ment: float, emo: float, ecstasy: float)
 
-var phys := 100.0
-var soc := 100.0
-var ment := 100.0
-var emo := 100.0
-var ecstasy := 100.0
+var phys := 70.0
+var soc := 70.0
+var ment := 70.0
+var emo := 70.0
+var ecstasy := 90.0
 
+#Health bar function
 func update_stats(new_phys: float, new_soc: float, new_ment: float, new_emo: float, new_ecstasy: float):
 	phys = clamp(new_phys, 0, 100)
 	soc = clamp(new_soc, 0, 100)
@@ -56,6 +58,8 @@ func update_stats(new_phys: float, new_soc: float, new_ment: float, new_emo: flo
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+
 
 
 func _process(delta:float) -> void:
@@ -99,7 +103,7 @@ func _process(delta:float) -> void:
 
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -1, 1)
+	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, -0.7, 0.7)
 	twist_input = 0.0
 	pitch_input = 0.0
 
@@ -164,7 +168,13 @@ func _process(delta:float) -> void:
 	#Debugging: checking x and y inputs
 	#print(input.x)
 	#print(input.z)
-
+	
+	#Show interaction bubble 
+	var actionables = actionable_finder.get_overlapping_areas()
+	if actionables.size() > 0:
+		interaction_bubble.show()
+	else:
+		interaction_bubble.hide()
 
 
 
@@ -181,27 +191,33 @@ func _unhandled_input(event: InputEvent) -> void:
 			twist_input = event.relative.x * mouse_sensitivity
 			pitch_input = event.relative.y * mouse_sensitivity 
 	
-	#Function for health to go down
 	
+	#Function to increase all health for 1 ecstasy
 	if event.is_action_pressed("camera_rotate_left"):
-		Game.update_stats({ "soc": -10, "ment": -7 })
-	if event.is_action_pressed("camera_rotate_right"):
-		Game.update_stats({ "phys": -10, "emo": -15 })
-	if event.is_action_pressed("ui_focus_next"):
-		Game.update_stats({ "ecstasy": 10})
+		Game.update_stats({"phys": 5, "emo":5, "soc": 5, "ment": 5, "ecstasy": -10 })
 		
-	if event.is_action_pressed("a_button"):
-		print(QuestManager.get_active_quests())
-		var delta = QuestManager.advance_quest("Fix Tower")
-		Game.update_stats(delta)
-	if event.is_action_pressed("ui_filedialog_show_hidden"):
-		print(QuestManager.get_active_quests())
-		var delta = QuestManager.advance_quest("Collect Mushrooms")
-		Game.update_stats(delta)
+		#debug
+	#if event.is_action_pressed("camera_rotate_right"):
+		#Game.update_stats({ "phys": -10, "emo": -15 })
+	#if event.is_action_pressed("ui_focus_next"):
+		#Game.update_stats({ "ecstasy": 10})
+		
+	#if event.is_action_pressed("a_button"):
+		#print(QuestManager.get_active_quests())
+		#var delta = QuestManager.advance_quest("Fix Tower")
+		#Game.update_stats(delta)
+	#if event.is_action_pressed("ui_filedialog_show_hidden"):
+		#print(QuestManager.get_active_quests())
+		#var delta = QuestManager.advance_quest("Collect Mushrooms")
+		#Game.update_stats(delta)
+
+	#Function that call the Actionable to create a dialogue bubble
+	#Works when in range of an Actionable area. 
 	if event.is_action_pressed("ui_accept"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
 			return
+		
 		
 		#DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "start")
