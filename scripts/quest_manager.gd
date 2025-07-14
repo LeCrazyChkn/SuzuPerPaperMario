@@ -10,7 +10,7 @@ func _ready():
 
 func _init_quests():
 	var quest1 := Quest.new()
-	quest1.name = "Fix Tower"
+	quest1.name = "Make some Friends"
 	quest1.description = "Fix the broken tower."
 	quest1.stages = [
 		{ "soc": 20, "phys": 30 },

@@ -14,7 +14,7 @@ func _update_quest_display(name, changes, quest):
 func _refresh_quests():
 	var text = "Active Quests:\n"
 	for q in QuestManager.get_active_quests():
-		text += "- %s (Stage %d)\n" % [q.name, q.current_stage]
+		text += "- %s (%d/2)\n" % [q.name, q.current_stage]
 		
 		
 	quest_label.text = text

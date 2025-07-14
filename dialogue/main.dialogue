@@ -46,11 +46,12 @@ if State.nene_status == "met":
 	Shousuke: I bet you're wondering where everyone is, huh?
 	- Yes.
 	Shousuke: There aren't too many people in this area of the village... they're all on the other side of that gate. 
-	Shousuke: I bet if you went over to	Mr. Fujiwara's ramen shop over there, he could help you out. 
+	Shousuke: I bet if you went over to	Mr. Fujiwara's ramen shop over there, he could help you unlock the gate. 
+	Shousuke: Although he's been a bit moody lately, he probably wouldn't want to help.
 else:
 	Shousuke: ...
 	Shousuke: The weather's nice today, I think. 
-	Shousuke: The ramen shop up there is pretty good too.
+	Shousuke: The ramen shop up there is pretty good too. But I wonder if Mr. Fujiwara is doing alright.
 	Shousuke: ... 
 
 => END 
@@ -88,6 +89,7 @@ else:
 	Tomo: I run this convenience store here... but everyone's in the village square. 
 	Tomo: I think something bad happenned... I hope they're alright...
 	set State.tomo_status = "met"
+	set State.dialogue_stat("soc", 5)
 
 
 
@@ -101,7 +103,7 @@ Eighty-Six: [[*beep*|*honk*]]
 ~ nene
 if State.nene_status == "met":
 	Nene: Y'know...
-	Nene: It's quite nice up here. *
+	Nene: It's quite nice up here. 
 	Nene: I wonder what they're up to in the village square.
 else:
 	Nene: Oh, hi there!
@@ -111,8 +113,30 @@ else:
 	Nene: ...
 	- Wanna be friends?
 	Nene: ... Of course!
-	set State.dialogue_quest("Find some Friends")
+	set State.dialogue_quest("Make some Friends")
 	set State.nene_status = "met"
 	Nene: Making friends is pretty important in places like these... You should get to know everyone quickly. 
+	Nene: Like that guy by the car over there. ...H-He looks pretty cool.
 
 => END
+
+
+
+
+~ fujiwara
+
+Mr. Fujiwara: Well hello there, young miss!
+Mr. Fujiwara:  You seem new around here. What can I do for you? 
+- Is this your shop? 
+	Mr. Fujiwara: Yes, that's right. My ramen shop. Or, at least what it used to be. 
+	Mr. Fujiwara: ...
+- Are you feeling alright?
+	Mr. Fujiwara: Did Shousuke tell you about this?
+	Mr. Fujiwara: Well, you see that car next to him? That's mine. I miss my old life.
+	Mr. Fujiwara: ...
+	- Is there anything I can do to help?
+		Mr. Fujiwara: ...!! That's it!
+		Mr. Fujiwara: Young miss... I have a request for you.
+		Mr. Fujiwara: Do you think you could help me repair my car? 
+- ...
+	Mr. Fujiwara: ...
