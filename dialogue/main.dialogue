@@ -48,6 +48,8 @@ if State.nene_status == "met":
 	Shousuke: There aren't too many people in this area of the village... they're all on the other side of that gate. 
 	Shousuke: I bet if you went over to	Mr. Fujiwara's ramen shop over there, he could help you unlock the gate. 
 	Shousuke: Although he's been a bit moody lately, he probably wouldn't want to help.
+	Shousuke: He's been like that... ever since his car broke down.
+	set State.shousuke_status = "met"
 else:
 	Shousuke: ...
 	Shousuke: The weather's nice today, I think. 
@@ -131,12 +133,25 @@ Mr. Fujiwara:  You seem new around here. What can I do for you?
 	Mr. Fujiwara: Yes, that's right. My ramen shop. Or, at least what it used to be. 
 	Mr. Fujiwara: ...
 - Are you feeling alright?
-	Mr. Fujiwara: Did Shousuke tell you about this?
-	Mr. Fujiwara: Well, you see that car next to him? That's mine. I miss my old life.
-	Mr. Fujiwara: ...
-	- Is there anything I can do to help?
-		Mr. Fujiwara: ...!! That's it!
-		Mr. Fujiwara: Young miss... I have a request for you.
-		Mr. Fujiwara: Do you think you could help me repair my car? 
+	if State.shousuke_status == "met":
+		Mr. Fujiwara: ...
+		- About your car?
+			Mr. Fujiwara: Did Shousuke tell you about this?
+			Mr. Fujiwara: Well, you see that car next to him? That's mine. 
+			Mr. Fujiwara: I used to deliver ramen across across this countryside. I miss my old life.
+			Mr. Fujiwara: ...
+			- Is there anything I can do to help?
+				Mr. Fujiwara: ...!! That's it!
+				set State.dialogue_stat("emo", 5)
+				Mr. Fujiwara: Young miss... I have a request for you.
+				Mr. Fujiwara: Do you think you could help me repair my car? 
+				- Yes!
+				Mr. Fujiwara: Right! Then let's get started!
+				Mr. Fujiwara: (fade to black)
+				Mr. Fujiwara: (thank you for playing)
+	else:
+		Mr. Fujiwara: ...
+		Mr. Fujiwara: Y-You wouldn't know. Unless you were Shousuke over there.
+		
 - ...
 	Mr. Fujiwara: ...

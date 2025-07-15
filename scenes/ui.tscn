@@ -284,9 +284,13 @@ texture = ExtResource("10_6rmj2")
 expand_mode = 1
 
 [node name="Quests" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchor_left = 0.679
+anchor_right = 0.679
+offset_left = -1919.53
+offset_top = 8.0
+offset_right = -1879.53
+offset_bottom = 48.0
 script = ExtResource("14_ilk7v")
 
 [node name="QuestLabel2" type="TextEdit" parent="Quests"]
@@ -320,3 +324,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 12
 theme_override_fonts/font = ExtResource("15_flkkw")
 theme_override_font_sizes/font_size = 25
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 246.0
+offset_right = 384.0
+offset_bottom = 286.0
+text = "Press E for Ecstasy
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1056.0
+offset_right = 144.0
+offset_bottom = 1088.0
+text = "ver 1.0"

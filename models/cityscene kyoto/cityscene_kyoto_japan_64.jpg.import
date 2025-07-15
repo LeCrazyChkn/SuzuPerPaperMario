@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dojssbtfy4l85"
+path.s3tc="res://.godot/imported/cityscene_kyoto_japan_64.jpg-af98e404f816b3d8e79f392d67935f65.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "cb1c2d94caab1c2f7a33512da69331e5"
+}
+
+[deps]
+
+source_file="res://models/cityscene kyoto/cityscene_kyoto_japan_64.jpg"
+dest_files=["res://.godot/imported/cityscene_kyoto_japan_64.jpg-af98e404f816b3d8e79f392d67935f65.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

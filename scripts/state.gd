@@ -4,6 +4,7 @@ extends Node
 var key_status : String = ""
 var nene_status: String = ""
 var tomo_status: String = ""
+var shousuke_status: String = ""
 var money : int = 1500
 
 func dialogue_quest(quest):
