@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn4ba6juhr6uh"
 path.s3tc="res://.godot/imported/china_shop_0.png-e941c81c7398b409cf1d8fb263f3b1d8.s3tc.ctex"
+path.etc2="res://.godot/imported/china_shop_0.png-e941c81c7398b409cf1d8fb263f3b1d8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/corner shop/china_shop_0.png"
-dest_files=["res://.godot/imported/china_shop_0.png-e941c81c7398b409cf1d8fb263f3b1d8.s3tc.ctex"]
+dest_files=["res://.godot/imported/china_shop_0.png-e941c81c7398b409cf1d8fb263f3b1d8.s3tc.ctex", "res://.godot/imported/china_shop_0.png-e941c81c7398b409cf1d8fb263f3b1d8.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfl6yb6ahrg2c"
 path.s3tc="res://.godot/imported/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png-24a6a3b8a54988750a43e8be3e87e1bb.s3tc.ctex"
+path.etc2="res://.godot/imported/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png-24a6a3b8a54988750a43e8be3e87e1bb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprites/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png"
-dest_files=["res://.godot/imported/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png-24a6a3b8a54988750a43e8be3e87e1bb.s3tc.ctex"]
+dest_files=["res://.godot/imported/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png-24a6a3b8a54988750a43e8be3e87e1bb.s3tc.ctex", "res://.godot/imported/shiver_toads__paper_mario_style__by_derekminya_dcdoot0-fullview.png-24a6a3b8a54988750a43e8be3e87e1bb.etc2.ctex"]
 
 [params]
 

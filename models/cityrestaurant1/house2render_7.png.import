@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cij1i61jyv7yp"
 path.s3tc="res://.godot/imported/house2render_7.png-18b4f05f27f461915f7e2a6ab8493a69.s3tc.ctex"
+path.etc2="res://.godot/imported/house2render_7.png-18b4f05f27f461915f7e2a6ab8493a69.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/cityrestaurant1/house2render_7.png"
-dest_files=["res://.godot/imported/house2render_7.png-18b4f05f27f461915f7e2a6ab8493a69.s3tc.ctex"]
+dest_files=["res://.godot/imported/house2render_7.png-18b4f05f27f461915f7e2a6ab8493a69.s3tc.ctex", "res://.godot/imported/house2render_7.png-18b4f05f27f461915f7e2a6ab8493a69.etc2.ctex"]
 
 [params]
 

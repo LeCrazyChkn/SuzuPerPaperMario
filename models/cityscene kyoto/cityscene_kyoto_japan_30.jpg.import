@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnq41aa3ln6mo"
 path.s3tc="res://.godot/imported/cityscene_kyoto_japan_30.jpg-2345b577eb4fd7a41ae7fd655a7b2d5f.s3tc.ctex"
+path.etc2="res://.godot/imported/cityscene_kyoto_japan_30.jpg-2345b577eb4fd7a41ae7fd655a7b2d5f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/cityscene kyoto/cityscene_kyoto_japan_30.jpg"
-dest_files=["res://.godot/imported/cityscene_kyoto_japan_30.jpg-2345b577eb4fd7a41ae7fd655a7b2d5f.s3tc.ctex"]
+dest_files=["res://.godot/imported/cityscene_kyoto_japan_30.jpg-2345b577eb4fd7a41ae7fd655a7b2d5f.s3tc.ctex", "res://.godot/imported/cityscene_kyoto_japan_30.jpg-2345b577eb4fd7a41ae7fd655a7b2d5f.etc2.ctex"]
 
 [params]
 

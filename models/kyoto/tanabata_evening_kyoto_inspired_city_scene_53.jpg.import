@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uigfo7pw5wao"
 path.s3tc="res://.godot/imported/tanabata_evening_kyoto_inspired_city_scene_53.jpg-ca697e9574b6aad8ec1c909dafc2a27b.s3tc.ctex"
+path.etc2="res://.godot/imported/tanabata_evening_kyoto_inspired_city_scene_53.jpg-ca697e9574b6aad8ec1c909dafc2a27b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/kyoto/tanabata_evening_kyoto_inspired_city_scene_53.jpg"
-dest_files=["res://.godot/imported/tanabata_evening_kyoto_inspired_city_scene_53.jpg-ca697e9574b6aad8ec1c909dafc2a27b.s3tc.ctex"]
+dest_files=["res://.godot/imported/tanabata_evening_kyoto_inspired_city_scene_53.jpg-ca697e9574b6aad8ec1c909dafc2a27b.s3tc.ctex", "res://.godot/imported/tanabata_evening_kyoto_inspired_city_scene_53.jpg-ca697e9574b6aad8ec1c909dafc2a27b.etc2.ctex"]
 
 [params]
 

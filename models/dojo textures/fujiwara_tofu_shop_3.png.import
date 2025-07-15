@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://by62kaweqtekx"
 path.s3tc="res://.godot/imported/fujiwara_tofu_shop_3.png-6855986d2241c4166b9bf85796fef824.s3tc.ctex"
+path.etc2="res://.godot/imported/fujiwara_tofu_shop_3.png-6855986d2241c4166b9bf85796fef824.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/dojo textures/fujiwara_tofu_shop_3.png"
-dest_files=["res://.godot/imported/fujiwara_tofu_shop_3.png-6855986d2241c4166b9bf85796fef824.s3tc.ctex"]
+dest_files=["res://.godot/imported/fujiwara_tofu_shop_3.png-6855986d2241c4166b9bf85796fef824.s3tc.ctex", "res://.godot/imported/fujiwara_tofu_shop_3.png-6855986d2241c4166b9bf85796fef824.etc2.ctex"]
 
 [params]
 

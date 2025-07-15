@@ -193,7 +193,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	
 	#Function to increase all health for 1 ecstasy
-	if event.is_action_pressed("camera_rotate_left"):
+	if event.is_action_pressed("camera_rotate_right"):
 		Game.update_stats({"phys": 5, "emo":5, "soc": 5, "ment": 5, "ecstasy": -10 })
 		
 		#debug

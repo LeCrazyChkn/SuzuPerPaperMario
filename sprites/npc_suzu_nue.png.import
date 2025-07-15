@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bapiei0ivksit"
 path.s3tc="res://.godot/imported/npc_suzu_nue.png-384d92d803b0b647752cd5245e0eb8fc.s3tc.ctex"
+path.etc2="res://.godot/imported/npc_suzu_nue.png-384d92d803b0b647752cd5245e0eb8fc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprites/npc_suzu_nue.png"
-dest_files=["res://.godot/imported/npc_suzu_nue.png-384d92d803b0b647752cd5245e0eb8fc.s3tc.ctex"]
+dest_files=["res://.godot/imported/npc_suzu_nue.png-384d92d803b0b647752cd5245e0eb8fc.s3tc.ctex", "res://.godot/imported/npc_suzu_nue.png-384d92d803b0b647752cd5245e0eb8fc.etc2.ctex"]
 
 [params]
 

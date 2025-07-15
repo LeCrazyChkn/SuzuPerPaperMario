@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://erly3ey2fjgk"
 path.s3tc="res://.godot/imported/tokyo_suburban_rustic_house_2.png-ff06dd5862f22018e75a3077b9510d30.s3tc.ctex"
+path.etc2="res://.godot/imported/tokyo_suburban_rustic_house_2.png-ff06dd5862f22018e75a3077b9510d30.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/rustic house/tokyo_suburban_rustic_house_2.png"
-dest_files=["res://.godot/imported/tokyo_suburban_rustic_house_2.png-ff06dd5862f22018e75a3077b9510d30.s3tc.ctex"]
+dest_files=["res://.godot/imported/tokyo_suburban_rustic_house_2.png-ff06dd5862f22018e75a3077b9510d30.s3tc.ctex", "res://.godot/imported/tokyo_suburban_rustic_house_2.png-ff06dd5862f22018e75a3077b9510d30.etc2.ctex"]
 
 [params]
 

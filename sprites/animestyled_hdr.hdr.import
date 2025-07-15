@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4bmyiadnfjq0"
 path.bptc="res://.godot/imported/animestyled_hdr.hdr-0d8ec83d0a03cdf911dd04a6913221b7.bptc.ctex"
+path.astc="res://.godot/imported/animestyled_hdr.hdr-0d8ec83d0a03cdf911dd04a6913221b7.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprites/animestyled_hdr.hdr"
-dest_files=["res://.godot/imported/animestyled_hdr.hdr-0d8ec83d0a03cdf911dd04a6913221b7.bptc.ctex"]
+dest_files=["res://.godot/imported/animestyled_hdr.hdr-0d8ec83d0a03cdf911dd04a6913221b7.bptc.ctex", "res://.godot/imported/animestyled_hdr.hdr-0d8ec83d0a03cdf911dd04a6913221b7.astc.ctex"]
 
 [params]
 

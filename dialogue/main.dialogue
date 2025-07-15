@@ -142,7 +142,8 @@ Mr. Fujiwara:  You seem new around here. What can I do for you?
 			Mr. Fujiwara: ...
 			- Is there anything I can do to help?
 				Mr. Fujiwara: ...!! That's it!
-				set State.dialogue_stat("emo", 5)
+				set State.dialogue_stat("emo", 20)
+				set State.dialogue_stat("ecstasy", 10)
 				Mr. Fujiwara: Young miss... I have a request for you.
 				Mr. Fujiwara: Do you think you could help me repair my car? 
 				- Yes!

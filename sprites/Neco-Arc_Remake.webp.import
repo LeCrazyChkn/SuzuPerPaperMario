@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1cggq1qpkn2"
 path.s3tc="res://.godot/imported/Neco-Arc_Remake.webp-dd323516e9124b11f86a1de19dd3de2b.s3tc.ctex"
+path.etc2="res://.godot/imported/Neco-Arc_Remake.webp-dd323516e9124b11f86a1de19dd3de2b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprites/Neco-Arc_Remake.webp"
-dest_files=["res://.godot/imported/Neco-Arc_Remake.webp-dd323516e9124b11f86a1de19dd3de2b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Neco-Arc_Remake.webp-dd323516e9124b11f86a1de19dd3de2b.s3tc.ctex", "res://.godot/imported/Neco-Arc_Remake.webp-dd323516e9124b11f86a1de19dd3de2b.etc2.ctex"]
 
 [params]
 

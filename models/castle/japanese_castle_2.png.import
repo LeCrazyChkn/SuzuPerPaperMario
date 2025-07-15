@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvdopo713y8cn"
 path.s3tc="res://.godot/imported/japanese_castle_2.png-339611669b584a84fc9aca64dc46b0e6.s3tc.ctex"
+path.etc2="res://.godot/imported/japanese_castle_2.png-339611669b584a84fc9aca64dc46b0e6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/castle/japanese_castle_2.png"
-dest_files=["res://.godot/imported/japanese_castle_2.png-339611669b584a84fc9aca64dc46b0e6.s3tc.ctex"]
+dest_files=["res://.godot/imported/japanese_castle_2.png-339611669b584a84fc9aca64dc46b0e6.s3tc.ctex", "res://.godot/imported/japanese_castle_2.png-339611669b584a84fc9aca64dc46b0e6.etc2.ctex"]
 
 [params]
 
