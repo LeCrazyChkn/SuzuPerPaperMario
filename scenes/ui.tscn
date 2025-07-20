@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3k67xygdr3mb"]
+[gd_scene load_steps=19 format=3 uid="uid://c3k67xygdr3mb"]
 
 [ext_resource type="Texture2D" uid="uid://cxc8nq0s8dvhm" path="res://sprites/pilcrow.png" id="1_6rmj2"]
 [ext_resource type="Script" uid="uid://c4tpxwol4c4xs" path="res://scripts/ui.gd" id="1_ilk7v"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bxrlbaehfa058" path="res://sprites/b737b6ba5ae88c8e59474d4fb6abc955.png" id="11_vsj0x"]
 [ext_resource type="Script" uid="uid://c7xyi0hdgclul" path="res://scripts/quest_label.gd" id="14_ilk7v"]
 [ext_resource type="FontFile" uid="uid://dbcehgnkae6f3" path="res://dialogue/MangaSpeak-BaBl.ttf" id="15_flkkw"]
+[ext_resource type="Script" uid="uid://dktsbcgtxo8v1" path="res://scripts/quest_banner.gd" id="16_mhjpf"]
 
 [sub_resource type="Theme" id="Theme_qsv74"]
 default_font_size = 49
@@ -298,10 +299,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.679
 anchor_right = 0.679
-offset_left = 1564.84
+offset_left = 1543.84
 offset_top = 200.0
-offset_right = 1876.84
-offset_bottom = 597.0
+offset_right = 1877.84
+offset_bottom = 606.0
 grow_horizontal = 2
 theme_override_colors/background_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -314,10 +315,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.679
 anchor_right = 0.679
-offset_left = 1571.84
+offset_left = 1548.84
 offset_top = 205.0
 offset_right = 1871.84
-offset_bottom = 590.0
+offset_bottom = 600.0
 grow_horizontal = 2
 theme_override_colors/background_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -325,19 +326,37 @@ theme_override_constants/line_spacing = 12
 theme_override_fonts/font = ExtResource("15_flkkw")
 theme_override_font_sizes/font_size = 25
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 246.0
-offset_right = 472.0
-offset_bottom = 286.0
-text = "Press E to absorb Ecstasy
-"
+[node name="QuestBanner" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.341
+anchor_right = 0.341
+offset_left = -318.256
+offset_top = 359.0
+offset_right = 407.744
+offset_bottom = 477.0
+theme_override_font_sizes/normal_font_size = 45
+text = "Quest completed sugoi!! "
+script = ExtResource("16_mhjpf")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="BackgroundText" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="BackgroundText"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 1056.0
 offset_right = 144.0
 offset_bottom = 1088.0
 text = "ver 1.0"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BackgroundText/RichTextLabel2"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = -810.0
+offset_right = 464.0
+offset_bottom = -770.0
+text = "Press E to absorb Ecstasy
+"

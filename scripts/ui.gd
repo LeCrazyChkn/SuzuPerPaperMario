@@ -5,6 +5,7 @@ extends Control
 @onready var ment_bar = $Ment/MentBottom/MentBar
 @onready var emo_bar = $Emo/EmoBottom/EmoBar
 @onready var ecstasy_bar = $Ecstasy/EcstasyBottom/EcstasyBar
+@onready var banner = $QuestBanner
 
 func _ready():
 	Game.stat_values_updated.connect(_on_stat_values_updated)
@@ -21,3 +22,4 @@ func _on_stat_values_updated(changes: Dictionary):
 		emo_bar.set_health(changes["emo"])
 	if changes.has("ecstasy"):
 		ecstasy_bar.set_health(changes["ecstasy"])
+		

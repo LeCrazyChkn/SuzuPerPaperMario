@@ -215,12 +215,14 @@ follow_speed = 20.0
 [node name="PitchPivot" type="Node3D" parent="TwistPivot"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="TwistPivot/PitchPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5735, 0)
 spring_length = 4.0
+margin = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999439, 0.0335041, 0, -0.0335041, 0.999439, 0, -0.125969, 3.61736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.440379, 3.93262)
 fov = 60.0
+near = 0.001
 
 [node name="InteractBubble" type="Sprite3D" parent="TwistPivot"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1, 0.5485, 0)

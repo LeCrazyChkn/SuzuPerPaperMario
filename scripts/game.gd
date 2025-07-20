@@ -5,6 +5,7 @@ signal stats_changed(phys, soc, ment, emo, ecstasy)
 signal stat_values_updated(changes: Dictionary)
 
 
+
 var phys := 70.0
 var soc := 70.0
 var ment := 70.0
@@ -12,6 +13,8 @@ var emo := 70.0
 var ecstasy := 90.0
 
 var active_quests: Array = []
+
+
 
 func update_stats(delta: Dictionary):
 	var changes := {}

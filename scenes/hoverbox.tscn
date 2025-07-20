@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://kno1yofd6860"]
+
+[node name="Hoverbox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 178.0
+offset_bottom = 75.0
+text = "test"

@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var interaction_bubble := $TwistPivot/InteractBubble
 
 #This is the script for the first tutorial game, but changed to be for the CharacterBody3D instead.
-var mouse_sensitivity:= 0.001
+var mouse_sensitivity:= 0.0005
 var twist_input:= 0.0
 var pitch_input:= 0.0
 @export var gravity_force := 0.5
@@ -57,7 +57,7 @@ func update_stats(new_phys: float, new_soc: float, new_ment: float, new_emo: flo
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 
 
@@ -94,8 +94,9 @@ func _process(delta:float) -> void:
 		velocity.z = move_toward(velocity.z, 0, deceleration * delta)
 	
 	
-	#Move the character
-	move_and_slide()
+	#Check if not talking to an NPC, then move the character 
+	if State.is_talking == false:
+		move_and_slide()
 
 
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -159,8 +160,10 @@ func _process(delta:float) -> void:
 		var current_rotation = sprite.rotation.y
 		sprite.rotation.y = lerp_angle(current_rotation, target_rotation, flip_speed)
 
-	#Play animation
-	sprite.play(new_suffix + new_animation + "S") 
+	#Play animation if not talking to NPC
+	if State.is_talking == false:
+		sprite.play(new_suffix + new_animation + "S") 
+	#debug
 	#sprite.play("default")
 
 
@@ -187,7 +190,7 @@ func _process(delta:float) -> void:
 #Mouse Input function
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			twist_input = event.relative.x * mouse_sensitivity
 			pitch_input = event.relative.y * mouse_sensitivity 
 	
@@ -202,7 +205,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	#if event.is_action_pressed("ui_focus_next"):
 		#Game.update_stats({ "ecstasy": 10})
 		
-	#if event.is_action_pressed("a_button"):
+	#if event.is_action_pressed("ui_cancel"):
 		#print(QuestManager.get_active_quests())
 		#var delta = QuestManager.advance_quest("Fix Tower")
 		#Game.update_stats(delta)
@@ -214,6 +217,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	#Function that call the Actionable to create a dialogue bubble
 	#Works when in range of an Actionable area. 
 	if event.is_action_pressed("ui_accept"):
+		QuestBanner.show_quest_completed_banner("")
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()

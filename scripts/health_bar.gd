@@ -2,6 +2,8 @@ extends TextureProgressBar
 
 @onready var flash = Color(2.0, 2.0, 2.0) # White glow flash
 @onready var normal = Color(1, 1, 1) # Normal color
+@export_multiline var text : String = "" 
+@export
 var previous_value := value
 
 func set_health(new_value: float):
@@ -20,4 +22,6 @@ func set_health(new_value: float):
 	#debug
 	#print("Prev is " + str(previous_value))
 	#print("Current is " + str(new_value))
+	
+		
 	
