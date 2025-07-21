@@ -3,7 +3,7 @@ extends RichTextLabel #with ChatGPT
 
 func _ready() -> void:
 	self.show()
-	show_quest_completed_banner("Test")
+	show_quest_completed_banner("Reach the Village")
 
 
 

@@ -331,12 +331,18 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.341
 anchor_right = 0.341
-offset_left = -318.256
-offset_top = 359.0
-offset_right = 407.744
+offset_left = -576.256
+offset_top = 342.0
+offset_right = 611.744
 offset_bottom = 477.0
-theme_override_font_sizes/normal_font_size = 45
-text = "Quest completed sugoi!! "
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_constants/line_separation = 13
+theme_override_fonts/normal_font = ExtResource("15_flkkw")
+theme_override_font_sizes/normal_font_size = 51
+text = "Quest completed !! "
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("16_mhjpf")
 
 [node name="BackgroundText" type="Control" parent="."]

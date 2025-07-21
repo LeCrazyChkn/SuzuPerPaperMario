@@ -217,7 +217,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	#Function that call the Actionable to create a dialogue bubble
 	#Works when in range of an Actionable area. 
 	if event.is_action_pressed("ui_accept"):
-		QuestBanner.show_quest_completed_banner("")
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
